@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #15181D; height: 100%; overflow: hidden; }
+  </style>
+</helmet>
+<x-import component-from-global-scope="VardirSplash" from="./animations.jsx ./vardir-splash.jsx" tagline="{{ tagline }}" theme="{{ theme }}" hint-size="100%,100%"</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Ink&quot;,&quot;Indigo&quot;,&quot;Paper&quot;],&quot;default&quot;:&quot;Ink&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Splash&quot;},&quot;tagline&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;None&quot;,&quot;Web · App · Programvare&quot;,&quot;Utvikling som varer&quot;,&quot;Web &amp; App-utvikling&quot;,&quot;Web · Programvare · Halden&quot;],&quot;default&quot;:&quot;None&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Splash&quot;}}">class Component extends DCLogic {
+  renderVals() {
+    return {
+      tagline: this.props.tagline ?? 'None',
+      theme: this.props.theme ?? 'Ink',
+    };
+  }
+}</script>
+</body>
+</html>

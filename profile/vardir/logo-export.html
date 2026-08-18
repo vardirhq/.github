@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;}
+  #stage{display:flex;align-items:center;justify-content:center;}
+  .mark{display:block;}
+  .wm{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.025em;line-height:1;}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script>
+const MARK = (inkColor, accentColor) => `<svg class="mark" viewBox="0 0 100 100"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="${inkColor}" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="${accentColor}"/></svg>`;
+
+const stage = document.getElementById('stage');
+
+// each variant: {w,h,bg, html}
+const VARIANTS = {
+  'primary-light': {w:1600,h:700,bg:'transparent', html:`
+    <div style="display:flex;align-items:center;gap:60px;">
+      ${MARK('#15181D','#5856E0')}
+      <span class="wm" style="font-size:200px;color:#15181D;">Vardir</span>
+    </div>`, markW:200},
+  'primary-dark': {w:1600,h:700,bg:'transparent', html:`
+    <div style="display:flex;align-items:center;gap:60px;">
+      ${MARK('#FFFFFF','#5856E0')}
+      <span class="wm" style="font-size:200px;color:#FFFFFF;">Vardir</span>
+    </div>`, markW:200},
+  'mark': {w:900,h:900,bg:'transparent', html:`${MARK('#15181D','#5856E0')}`, markW:760},
+  'mark-white': {w:900,h:900,bg:'transparent', html:`${MARK('#FFFFFF','#5856E0')}`, markW:760},
+  'appicon-indigo': {w:1024,h:1024,bg:'transparent', html:`
+    <div style="width:1024px;height:1024px;border-radius:230px;background:#5856E0;display:flex;align-items:center;justify-content:center;">
+      ${MARK('#FFFFFF','#FFFFFF')}
+    </div>`, markW:600},
+  'appicon-dark': {w:1024,h:1024,bg:'transparent', html:`
+    <div style="width:1024px;height:1024px;border-radius:230px;background:#0E0F12;display:flex;align-items:center;justify-content:center;">
+      ${MARK('#FFFFFF','#5856E0')}
+    </div>`, markW:600},
+  'appicon-light': {w:1024,h:1024,bg:'transparent', html:`
+    <div style="width:1024px;height:1024px;border-radius:230px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;">
+      ${MARK('#15181D','#5856E0')}
+    </div>`, markW:600},
+};
+
+window.showVariant = function(key){
+  const v = VARIANTS[key];
+  document.documentElement.style.width = v.w+'px';
+  document.documentElement.style.height = v.h+'px';
+  document.body.style.width = v.w+'px';
+  document.body.style.height = v.h+'px';
+  document.body.style.background = v.bg;
+  stage.style.width = v.w+'px';
+  stage.style.height = v.h+'px';
+  stage.innerHTML = v.html;
+  const m = stage.querySelector('.mark');
+  if(m){ m.style.width = v.markW+'px'; m.style.height = v.markW+'px'; }
+  return true;
+};
+showVariant('primary-light');
+</script>
+</body>
+</html>

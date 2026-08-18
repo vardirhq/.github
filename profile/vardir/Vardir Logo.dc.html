@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+</style>
+</helmet>
+<div style="{{ rootStyle }};font-family:'Space Grotesk',sans-serif;background:var(--canvas,#EFEEE9);min-height:100%;padding:0 0 80px;transition:background .25s;">
+
+  <!-- HERO -->
+  <header data-screen-label="Hero" style="padding:90px 40px 70px;display:flex;flex-direction:column;align-items:center;text-align:center;border-bottom:1px solid var(--line,#E6E5DF);">
+    <svg viewBox="0 0 100 100" width="132" height="132" style="margin-bottom:34px;"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="var(--ink,#15181D)" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="var(--accent-b,#5856E0)"/></svg>
+    <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:58px;letter-spacing:-0.03em;line-height:1;color:var(--ink,#15181D);">Vardir</div>
+    <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted,#6B6E73);margin:46px 0 0;">Aperture · Solid · The brand in use</p>
+  </header>
+
+  <div style="max-width:1180px;margin:0 auto;padding:56px 40px 0;display:flex;flex-direction:column;gap:26px;">
+
+    <!-- LOCKUPS -->
+    <section data-screen-label="Lockups" style="background:var(--card,#fff);border:1px solid var(--line,#E6E5DF);border-radius:24px;padding:38px;">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted,#6B6E73);margin-bottom:26px;">01 · Lockups</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+        <div style="display:flex;align-items:center;gap:22px;padding:38px 36px;background:var(--canvas,#EFEEE9);border:1px solid var(--line,#E6E5DF);border-radius:16px;">
+          <svg viewBox="0 0 100 100" width="62" height="62"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="var(--ink,#15181D)" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="var(--accent-b,#5856E0)"/></svg>
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;letter-spacing:-0.025em;color:var(--ink,#15181D);">Vardir</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:22px;padding:38px 36px;background:#0E0F12;border-radius:16px;">
+          <svg viewBox="0 0 100 100" width="62" height="62"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#FFFFFF" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="var(--accent-b,#5856E0)"/></svg>
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;letter-spacing:-0.025em;color:#FFFFFF;">Vardir</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:34px;background:var(--canvas,#EFEEE9);border:1px solid var(--line,#E6E5DF);border-radius:16px;">
+          <svg viewBox="0 0 100 100" width="56" height="56"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="var(--ink,#15181D)" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="var(--accent-b,#5856E0)"/></svg>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:26px;letter-spacing:-0.025em;color:var(--ink,#15181D);line-height:1;">Vardir</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:30px;padding:34px;background:var(--canvas,#EFEEE9);border:1px solid var(--line,#E6E5DF);border-radius:16px;">
+          <svg viewBox="0 0 100 100" width="58" height="58"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="var(--ink,#15181D)" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="var(--accent-b,#5856E0)"/></svg>
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted,#6B6E73);">Symbol<br>only</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP ICONS -->
+    <section data-screen-label="App icons" style="background:var(--card,#fff);border:1px solid var(--line,#E6E5DF);border-radius:24px;padding:38px;">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted,#6B6E73);margin-bottom:26px;">02 · App icon &amp; favicon</div>
+      <div style="display:flex;align-items:flex-end;gap:30px;flex-wrap:wrap;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <div style="width:108px;height:108px;border-radius:26px;background:var(--accent-b,#5856E0);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px -10px rgba(88,86,224,0.6);">
+            <svg viewBox="0 0 100 100" width="68" height="68"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#FFFFFF" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#FFFFFF"/></svg>
+          </div>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;color:var(--muted,#6B6E73);">PRIMARY</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <div style="width:108px;height:108px;border-radius:26px;background:#0E0F12;display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 100 100" width="68" height="68"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#FFFFFF" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="var(--accent-b,#5856E0)"/></svg>
+          </div>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;color:var(--muted,#6B6E73);">DARK</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <div style="width:108px;height:108px;border-radius:26px;background:#FFFFFF;border:1px solid var(--line,#E6E5DF);display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 100 100" width="68" height="68"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="var(--accent-b,#5856E0)"/></svg>
+          </div>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;color:var(--muted,#6B6E73);">LIGHT</span>
+        </div>
+        <div style="width:1px;height:108px;background:var(--line,#E6E5DF);"></div>
+        <!-- size ramp -->
+        <div style="display:flex;align-items:flex-end;gap:18px;">
+          <div style="width:64px;height:64px;border-radius:15px;background:var(--accent-b,#5856E0);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 100 100" width="40" height="40"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#FFFFFF" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#FFFFFF"/></svg></div>
+          <div style="width:40px;height:40px;border-radius:10px;background:var(--accent-b,#5856E0);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 100 100" width="25" height="25"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#FFFFFF" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#FFFFFF"/></svg></div>
+          <div style="width:24px;height:24px;border-radius:6px;background:var(--accent-b,#5856E0);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 100 100" width="16" height="16"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#FFFFFF" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#FFFFFF"/></svg></div>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--muted,#6B6E73);padding-bottom:4px;">64 · 40 · 16px</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUSINESS CARD -->
+    <section data-screen-label="Business card" style="background:var(--card,#fff);border:1px solid var(--line,#E6E5DF);border-radius:24px;padding:38px;">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted,#6B6E73);margin-bottom:26px;">03 · Business card <span style="text-transform:none;letter-spacing:0;">— placeholder details</span></div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;">
+        <!-- front -->
+        <div style="width:430px;height:258px;background:#FFFFFF;border:1px solid var(--line,#E6E5DF);border-radius:14px;box-shadow:0 18px 40px -22px rgba(0,0,0,0.3);padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <svg viewBox="0 0 100 100" width="40" height="40"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;letter-spacing:-0.025em;color:#15181D;line-height:1;">Vardir</div>
+          </div>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;color:#15181D;">Christoffer Madsen</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:#6B6E73;margin-top:2px;">Utvikler &amp; grunnlegger</div>
+            <div style="font-family:'Space Mono',monospace;font-size:11px;color:#15181D;margin-top:14px;line-height:1.7;">chris@vardir.no<br>+47 902 44 044</div>
+          </div>
+        </div>
+        <!-- back -->
+        <div style="width:430px;height:258px;background:#5856E0;border-radius:14px;box-shadow:0 18px 40px -22px rgba(88,86,224,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;">
+          <svg viewBox="0 0 100 100" width="64" height="64"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#FFFFFF" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#FFFFFF"/></svg>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(255,255,255,0.85);padding-left:0.32em;">vardir.no</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEBSITE -->
+    <section data-screen-label="Website" style="background:var(--card,#fff);border:1px solid var(--line,#E6E5DF);border-radius:24px;padding:38px;">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted,#6B6E73);margin-bottom:26px;">04 · Website header</div>
+      <div style="border:1px solid var(--line,#E6E5DF);border-radius:14px;overflow:hidden;box-shadow:0 18px 44px -26px rgba(0,0,0,0.35);">
+        <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;background:#EDEDEA;border-bottom:1px solid var(--line,#E6E5DF);">
+          <span style="width:11px;height:11px;border-radius:50%;background:#E0605A;"></span><span style="width:11px;height:11px;border-radius:50%;background:#E8B84A;"></span><span style="width:11px;height:11px;border-radius:50%;background:#56B86B;"></span>
+          <span style="margin-left:14px;font-family:'Space Mono',monospace;font-size:11px;color:#9A9DA3;background:#fff;border:1px solid #E0E0DB;border-radius:7px;padding:4px 14px;">vardir.no</span>
+        </div>
+        <div style="background:#fff;">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;border-bottom:1px solid #F0EFEA;">
+            <div style="display:flex;align-items:center;gap:11px;">
+              <svg viewBox="0 0 100 100" width="30" height="30"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+              <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;letter-spacing:-0.025em;color:#15181D;">Vardir</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:30px;">
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#3A3D42;">Tjenester</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#3A3D42;">Arbeid</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:#3A3D42;">Om oss</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500;color:#fff;background:#5856E0;border-radius:9px;padding:9px 18px;">Kontakt</span>
+            </div>
+          </div>
+          <div style="padding:62px 32px 70px;background:linear-gradient(180deg,#fff 0%,#F4F3FB 100%);position:relative;overflow:hidden;">
+            <div style="position:relative;z-index:1;max-width:560px;">
+              <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#5856E0;margin-bottom:18px;">Web · Programvare · Oslo</div>
+              <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:46px;line-height:1.05;letter-spacing:-0.03em;color:#15181D;margin:0 0 18px;">Vi bygger web og programvare som varer.</h2>
+              <p style="font-family:'Space Grotesk',sans-serif;font-size:17px;line-height:1.5;color:#6B6E73;margin:0 0 28px;max-width:440px;">Fra idé til drift — presise, robuste løsninger for selskaper som tar teknologi på alvor.</p>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;color:#fff;background:#15181D;border-radius:11px;padding:13px 26px;">Start et prosjekt</span>
+            </div>
+            <svg viewBox="0 0 100 100" width="320" height="320" style="position:absolute;right:-70px;top:-30px;opacity:0.07;"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL -->
+    <section data-screen-label="Social" style="background:var(--card,#fff);border:1px solid var(--line,#E6E5DF);border-radius:24px;padding:38px;">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted,#6B6E73);margin-bottom:26px;">05 · Avatar · social · tab</div>
+      <div style="display:flex;align-items:center;gap:40px;flex-wrap:wrap;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <div style="width:96px;height:96px;border-radius:50%;background:var(--accent-b,#5856E0);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 100 100" width="58" height="58"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#FFFFFF" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#FFFFFF"/></svg></div>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;color:var(--muted,#6B6E73);">AVATAR</span>
+        </div>
+        <!-- social post -->
+        <div style="width:200px;border:1px solid var(--line,#E6E5DF);border-radius:14px;overflow:hidden;">
+          <div style="display:flex;align-items:center;gap:9px;padding:11px 13px;border-bottom:1px solid #F0EFEA;">
+            <div style="width:30px;height:30px;border-radius:50%;background:var(--accent-b,#5856E0);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 100 100" width="18" height="18"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#FFFFFF" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#FFFFFF"/></svg></div>
+            <div style="line-height:1.1;"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;color:#15181D;">Vardir</div><div style="font-family:'Space Grotesk',sans-serif;font-size:10px;color:#9A9DA3;">@vardir</div></div>
+          </div>
+          <div style="height:120px;background:linear-gradient(135deg,#5856E0,#3F3DC0);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 100 100" width="64" height="64"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#FFFFFF" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="rgba(255,255,255,0.55)"/></svg></div>
+        </div>
+        <!-- browser tab -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line,#E6E5DF);border-radius:9px 9px 0 0;padding:9px 16px 11px;box-shadow:0 6px 16px -10px rgba(0,0,0,0.3);">
+            <svg viewBox="0 0 100 100" width="15" height="15"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;color:#3A3D42;">Vardir</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:#B5B5B0;margin-left:4px;">×</span>
+          </div>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;color:var(--muted,#6B6E73);">FAVICON TAB</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEM -->
+    <section data-screen-label="System" style="background:var(--card,#fff);border:1px solid var(--line,#E6E5DF);border-radius:24px;padding:38px;">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted,#6B6E73);margin-bottom:26px;">06 · Clear space &amp; palette</div>
+      <div style="display:grid;grid-template-columns:300px 1fr;gap:24px;align-items:stretch;">
+        <div style="display:flex;align-items:center;justify-content:center;background:var(--canvas,#EFEEE9);border:1px solid var(--line,#E6E5DF);border-radius:16px;padding:30px;">
+          <div style="position:relative;padding:34px;border:1px dashed #B7B6C9;border-radius:6px;">
+            <svg viewBox="0 0 100 100" width="110" height="110"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="var(--ink,#15181D)" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="var(--accent-b,#5856E0)"/></svg>
+            <span style="position:absolute;top:50%;left:9px;transform:translateY(-50%);font-family:'Space Mono',monospace;font-size:11px;color:#8A89A0;">x</span>
+            <span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);font-family:'Space Mono',monospace;font-size:11px;color:#8A89A0;">x</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;flex:1;">
+            <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line,#E6E5DF);display:flex;flex-direction:column;"><div style="flex:1;min-height:70px;background:#5856E0;"></div><div style="padding:10px 12px;"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;color:var(--ink,#15181D);">Indigo</div><div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted,#6B6E73);">#5856E0</div></div></div>
+            <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line,#E6E5DF);display:flex;flex-direction:column;"><div style="flex:1;min-height:70px;background:#15181D;"></div><div style="padding:10px 12px;"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;color:var(--ink,#15181D);">Ink</div><div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted,#6B6E73);">#15181D</div></div></div>
+            <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line,#E6E5DF);display:flex;flex-direction:column;"><div style="flex:1;min-height:70px;background:#EFEEE9;"></div><div style="padding:10px 12px;"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;color:var(--ink,#15181D);">Canvas</div><div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted,#6B6E73);">#EFEEE9</div></div></div>
+            <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line,#E6E5DF);display:flex;flex-direction:column;"><div style="flex:1;min-height:70px;background:#fff;border-bottom:1px solid var(--line,#E6E5DF);"></div><div style="padding:10px 12px;"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;color:var(--ink,#15181D);">Paper</div><div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted,#6B6E73);">#FFFFFF</div></div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--canvas,#EFEEE9);border:1px solid var(--line,#E6E5DF);border-radius:12px;">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--muted,#6B6E73);">MIN SIZE</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--ink,#15181D);">16px on screen · 6mm in print — the solid ring stays legible down to favicon scale.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1260,&quot;height&quot;:1900},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Light&quot;,&quot;Dark&quot;],&quot;default&quot;:&quot;Light&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Canvas&quot;},&quot;monochrome&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Canvas&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const dark = this.props.theme === 'Dark';
+    const mono = !!this.props.monochrome;
+    const ink = dark ? '#F2F1EC' : '#15181D';
+    const B = mono ? ink : '#5856E0';
+    const vars = {
+      '--canvas': dark ? '#0C0D10' : '#EFEEE9',
+      '--card': dark ? '#16181D' : '#FFFFFF',
+      '--ink': ink,
+      '--muted': dark ? '#9A9DA3' : '#6B6E73',
+      '--line': dark ? '#262A31' : '#E6E5DF',
+      '--accent-b': B,
+    };
+    const rootStyle = Object.entries(vars).map(([k, v]) => k + ':' + v).join(';');
+    return { rootStyle };
+  }
+}
+</script>
+</body>
+</html>

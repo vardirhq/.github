@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#EFEEE9;}
+  a{text-decoration:none;color:inherit;}
+  @keyframes vfloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-18px) rotate(6deg);}}
+  @keyframes blink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+  @keyframes glowPulse{0%,100%{box-shadow:0 0 14px 4px rgba(240,168,96,0.5);}50%{box-shadow:0 0 22px 8px rgba(240,168,96,0.8);}}
+  @keyframes ghostPulse{0%,100%{opacity:1;}50%{opacity:0.45;}}
+  @keyframes twinkle{0%,100%{opacity:1;}50%{opacity:0.3;}}
+  @keyframes fadeCycle{0%,20%{opacity:0;transform:translateY(3px);}35%,80%{opacity:1;transform:translateY(0);}95%,100%{opacity:0;}}
+  @keyframes badgePulse{0%,100%{transform:scale(1);}50%{transform:scale(1.12);}}
+  @keyframes nodePulse{0%,100%{r:6.5;opacity:1;}50%{r:8;opacity:0.75;}}
+  @keyframes eq1{0%,100%{height:4px;}50%{height:9px;}}
+  @keyframes eq2{0%,100%{height:8px;}50%{height:3px;}}
+  @keyframes eq3{0%,100%{height:5px;}50%{height:10px;}}
+  @keyframes swatchCycle{0%,100%{background:#6dbcdb;}33%{background:#d4541e;}66%{background:#9bb070;}}
+  @keyframes shelfIn{0%,15%{opacity:0;transform:translateX(-6px);}30%,85%{opacity:1;transform:translateX(0);}100%{opacity:0;}}
+  @keyframes checkPop{0%,40%{background:transparent;}55%,100%{background:#6ae0c6;}}
+  @keyframes droneBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
+  @keyframes revealIn{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes cardIn{from{opacity:0;translate:0 28px;}to{opacity:1;translate:0 0;}}
+</style>
+</helmet>
+<div style="font-family:'Space Grotesk',sans-serif;background:#EFEEE9;color:#15181D;overflow-x:hidden;">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(239,238,233,0.82);border-bottom:1px solid #E2E1DB;">
+    <nav style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,5vw,48px);display:flex;align-items:center;justify-content:space-between;gap:20px;">
+      <a href="#top" style="display:flex;align-items:center;gap:12px;">
+        <svg viewBox="0 0 100 100" width="34" height="34"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+        <span style="font-weight:600;font-size:22px;letter-spacing:-0.025em;">Vardir</span>
+      </a>
+
+      <!-- desktop links -->
+      <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:center;gap:clamp(20px,3vw,38px);">
+          <a href="#tjenester" style="font-size:15px;color:#3A3D42;">Tjenester</a>
+          <a href="#arbeid" style="font-size:15px;color:#3A3D42;">Arbeid</a>
+          <a href="#prosess" style="font-size:15px;color:#3A3D42;">Prosess</a>
+          <a href="#om" style="font-size:15px;color:#3A3D42;">Om oss</a>
+          <a href="#kontakt" style="font-size:15px;font-weight:500;color:#fff;background:#15181D;border-radius:10px;padding:10px 20px;">Kontakt</a>
+        </div>
+      </sc-if>
+
+      <!-- mobile burger -->
+      <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ toggleMenu }}" aria-label="Meny" style="border:1px solid #D8D7D0;background:#fff;border-radius:10px;width:44px;height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0;">
+          <span style="width:18px;height:2px;background:#15181D;border-radius:2px;"></span>
+          <span style="width:18px;height:2px;background:#15181D;border-radius:2px;"></span>
+          <span style="width:18px;height:2px;background:#15181D;border-radius:2px;"></span>
+        </button>
+      </sc-if>
+    </nav>
+
+    <!-- mobile dropdown -->
+    <sc-if value="{{ showMobileMenu }}" hint-placeholder-val="{{ false }}">
+      <div style="border-top:1px solid #E2E1DB;background:rgba(239,238,233,0.96);padding:14px clamp(20px,5vw,48px) 22px;display:flex;flex-direction:column;gap:4px;">
+        <a href="#tjenester" onClick="{{ toggleMenu }}" style="font-size:17px;color:#15181D;padding:12px 0;border-bottom:1px solid #E6E5DF;">Tjenester</a>
+        <a href="#arbeid" onClick="{{ toggleMenu }}" style="font-size:17px;color:#15181D;padding:12px 0;border-bottom:1px solid #E6E5DF;">Arbeid</a>
+        <a href="#prosess" onClick="{{ toggleMenu }}" style="font-size:17px;color:#15181D;padding:12px 0;border-bottom:1px solid #E6E5DF;">Prosess</a>
+        <a href="#om" onClick="{{ toggleMenu }}" style="font-size:17px;color:#15181D;padding:12px 0;border-bottom:1px solid #E6E5DF;">Om oss</a>
+        <a href="#kontakt" onClick="{{ toggleMenu }}" style="margin-top:12px;text-align:center;font-size:16px;font-weight:500;color:#fff;background:#15181D;border-radius:11px;padding:14px;">Kontakt oss</a>
+      </div>
+    </sc-if>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(64px,10vw,128px) clamp(20px,5vw,48px) clamp(56px,8vw,104px);overflow:hidden;">
+    <svg viewBox="0 0 100 100" width="540" height="540" style="position:absolute;right:-160px;top:-40px;opacity:0.06;animation:vfloat 9s ease-in-out infinite;pointer-events:none;"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+    <div style="position:relative;z-index:1;max-width:760px;">
+      <div style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:#5856E0;margin-bottom:24px;">Web · Programvare · Halden</div>
+      <h1 style="font-weight:600;font-size:clamp(40px,7vw,82px);line-height:1.02;letter-spacing:-0.035em;margin:0 0 26px;text-wrap:balance;">Vi bygger web og programvare som varer.</h1>
+      <p style="font-size:clamp(17px,2.2vw,21px);line-height:1.55;color:#5A5D62;margin:0 0 38px;max-width:560px;">Fra idé til drift — presise, robuste løsninger bygget av én utvikler med fullt eierskap. Lokal-først der det gir mening, ingen mellomledd, ingen overlevering.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;">
+        <a href="#kontakt" style="font-size:16px;font-weight:500;color:#fff;background:#5856E0;border-radius:12px;padding:15px 30px;box-shadow:0 12px 28px -12px rgba(88,86,224,0.7);">Start et prosjekt</a>
+        <a href="#arbeid" style="font-size:16px;font-weight:500;color:#15181D;background:transparent;border:1px solid #CFCEC7;border-radius:12px;padding:15px 30px;">Se arbeidet vårt</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="tjenester" style="max-width:1200px;margin:0 auto;padding:clamp(64px,9vw,112px) clamp(20px,5vw,48px);">
+    <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#5856E0;margin-bottom:14px;">01 · Tjenester</div>
+    <h2 style="font-weight:600;font-size:clamp(30px,4.5vw,48px);letter-spacing:-0.03em;line-height:1.05;margin:0 0 48px;max-width:620px;">Det vi gjør best</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;">
+      <div style="background:#fff;border:1px solid #E6E5DF;border-radius:20px;padding:34px;">
+        <div style="width:52px;height:52px;border-radius:14px;background:#EEEDFB;display:flex;align-items:center;justify-content:center;margin-bottom:24px;"><svg viewBox="0 0 100 100" width="30" height="30"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#5856E0" fill-rule="evenodd"/></svg></div>
+        <h3 style="font-weight:600;font-size:22px;letter-spacing:-0.02em;margin:0 0 12px;">Webutvikling</h3>
+        <p style="font-size:15.5px;line-height:1.6;color:#5A5D62;margin:0;">Raske, tilgjengelige nettsteder og webapper bygget på moderne rammeverk. Skreddersydd, ikke maler.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #E6E5DF;border-radius:20px;padding:34px;">
+        <div style="width:52px;height:52px;border-radius:14px;background:#EEEDFB;display:flex;align-items:center;justify-content:center;margin-bottom:24px;"><svg viewBox="0 0 100 100" width="30" height="30"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#5856E0" fill-rule="evenodd"/></svg></div>
+        <h3 style="font-weight:600;font-size:22px;letter-spacing:-0.02em;margin:0 0 12px;">Programvare</h3>
+        <p style="font-size:15.5px;line-height:1.6;color:#5A5D62;margin:0;">Interne verktøy, integrasjoner og API-er som tar bort manuelt arbeid og skalerer med dere.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #E6E5DF;border-radius:20px;padding:34px;">
+        <div style="width:52px;height:52px;border-radius:14px;background:#EEEDFB;display:flex;align-items:center;justify-content:center;margin-bottom:24px;"><svg viewBox="0 0 100 100" width="30" height="30"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#5856E0" fill-rule="evenodd"/></svg></div>
+        <h3 style="font-weight:600;font-size:22px;letter-spacing:-0.02em;margin:0 0 12px;">Rådgivning</h3>
+        <p style="font-size:15.5px;line-height:1.6;color:#5A5D62;margin:0;">Teknisk arkitektur, kodegjennomgang og valg av stack — slik at dere bygger riktig fra start.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="arbeid" style="background:#15181D;color:#F2F1EC;">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(64px,9vw,112px) clamp(20px,5vw,48px);">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#9D9BF0;margin-bottom:14px;">02 · Utvalgt arbeid</div>
+      <h2 style="font-weight:600;font-size:clamp(30px,4.5vw,48px);letter-spacing:-0.03em;line-height:1.05;margin:0 0 16px;max-width:620px;">Utvalgte prosjekter</h2>
+      <p style="font-size:16.5px;line-height:1.6;color:#9CA0A6;margin:0 0 48px;max-width:560px;">Egne produkter vi bygger og drifter selv — beviset på hvordan vi jobber, fra datamodell til ferdig leveranse.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
+        <a href="https://geyma.vardir.no" target="_blank" rel="noopener" style="display:block;border-radius:20px;overflow:hidden;border:1px solid #262A31;background:#16181D;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),border-color 0.35s,box-shadow 0.35s;animation:cardIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%;" style-hover="transform:translateY(-6px);border-color:#4a48b8;box-shadow:0 24px 48px -20px rgba(88,86,224,0.45);">
+          <div style="aspect-ratio:16/10;overflow:hidden;background:#EFE9DE;display:flex;flex-direction:column;font-family:'Hanken Grotesk',sans-serif;">
+            <div style="height:16px;background:#E7E0D2;border-bottom:1px solid rgba(33,29,23,0.1);display:flex;align-items:center;gap:5px;padding:0 8px;flex-shrink:0;">
+              <span style="font-size:7.5px;font-weight:700;color:#211D17;letter-spacing:0.02em;">Geyma</span>
+              <span style="font-size:6.5px;color:#211D17;background:#FBF8F2;border:1px solid rgba(33,29,23,0.12);border-radius:4px;padding:1px 6px;">Home</span>
+              <span style="font-size:6.5px;color:#7E7359;padding:1px 6px;">NAS · smb</span>
+              <span style="margin-left:auto;font-size:6.5px;color:#7E7359;background:#F3EEE4;border:1px solid rgba(33,29,23,0.1);border-radius:999px;padding:1px 7px;">Søk…</span>
+            </div>
+            <div style="flex:1;display:flex;min-height:0;">
+              <div style="width:27%;background:#E7E0D2;border-right:1px solid rgba(33,29,23,0.1);padding:7px 6px;display:flex;flex-direction:column;gap:4px;">
+                <div style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:#7E7359;">Steder</div>
+                <div style="font-size:7px;color:#211D17;background:rgba(44,110,73,0.14);border-radius:3px;padding:2px 5px;">Hjem</div>
+                <div style="font-size:7px;color:#5F5849;padding:0 5px;">Dokumenter</div>
+                <div style="font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:#7E7359;margin-top:3px;">Arbeidssett</div>
+                <div style="display:flex;align-items:center;gap:4px;padding:0 5px;"><span style="width:5px;height:5px;border-radius:2px;background:#2C6E49;"></span><span style="font-size:7px;color:#5F5849;">Faktura Q3</span></div>
+                <div style="display:flex;align-items:center;gap:4px;padding:0 5px;"><span style="width:5px;height:5px;border-radius:2px;background:#B4562E;"></span><span style="font-size:7px;color:#5F5849;">Skisser ✦</span></div>
+              </div>
+              <div style="flex:1;background:#F3EEE4;padding:8px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;align-content:start;">
+                <div style="background:#FBF8F2;border:1px solid rgba(33,29,23,0.1);border-radius:5px;padding:5px 4px;display:flex;flex-direction:column;align-items:center;gap:3px;"><span style="width:14px;height:11px;border-radius:2px;background:#D9C79B;"></span><span style="font-size:6px;color:#211D17;">Prosjekter</span></div>
+                <div style="background:#FBF8F2;border:1px solid rgba(33,29,23,0.1);border-radius:5px;padding:5px 4px;display:flex;flex-direction:column;align-items:center;gap:3px;"><span style="width:12px;height:12px;border-radius:2px;background:#8FAE9B;"></span><span style="font-size:6px;color:#211D17;">notat.md</span></div>
+                <div style="border:1px dashed rgba(33,29,23,0.3);border-radius:5px;animation:ghostPulse 2.6s ease-in-out infinite;padding:5px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;"><span style="font-size:6px;color:#7E7359;">avtale.pdf</span><span style="font-size:5.5px;color:#2C6E49;">→ ~/Arkiv</span></div>
+                <div style="background:#FBF8F2;border:1.5px solid #2C6E49;border-radius:5px;padding:5px 4px;display:flex;flex-direction:column;align-items:center;gap:3px;"><span style="width:12px;height:12px;border-radius:2px;background:#C6A2B8;"></span><span style="font-size:6px;color:#211D17;">foto.png</span></div>
+                <div style="background:#FBF8F2;border:1px solid rgba(33,29,23,0.1);border-radius:5px;padding:5px 4px;display:flex;flex-direction:column;align-items:center;gap:3px;"><span style="width:12px;height:12px;border-radius:2px;background:#B0B7C4;"></span><span style="font-size:6px;color:#211D17;">arkiv.zip</span></div>
+              </div>
+              <div style="width:24%;background:#FBF8F2;border-left:1px solid rgba(33,29,23,0.1);padding:7px 6px;display:flex;flex-direction:column;gap:4px;">
+                <div style="width:100%;aspect-ratio:4/3;border-radius:3px;background:#C6A2B8;"></div>
+                <div style="font-size:6.5px;font-weight:700;color:#211D17;">foto.png</div>
+                <div style="font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#7E7359;margin-top:2px;">Historikk</div>
+                <div style="font-size:5.5px;color:#5F5849;line-height:1.6;">Flyttet hit · i går<br>Omdøpt · 2. jul<br>Stjerne ★ · 28. jun</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:24px 26px;">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9D9BF0;margin-bottom:8px;">Desktop · Filbehandler</div>
+            <h3 style="font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 8px;">Geyma</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#9CA0A6;margin:0;">Filbehandleren som husker: aktivitetshistorikk, arbeidssett, SFTP/SMB som vanlige mapper — og lokal AI, uten sky.</p>
+          </div>
+        </a>
+        <a href="https://github.com/vardirhq/geyma-mobile" target="_blank" rel="noopener" style="display:block;border-radius:20px;overflow:hidden;border:1px solid #262A31;background:#16181D;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),border-color 0.35s,box-shadow 0.35s;animation:cardIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%;" style-hover="transform:translateY(-6px);border-color:#4a48b8;box-shadow:0 24px 48px -20px rgba(88,86,224,0.45);">
+          <div style="aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,#EFE9DE,#E3DACB);display:flex;align-items:flex-end;justify-content:center;font-family:'Hanken Grotesk',sans-serif;">
+            <div style="width:132px;height:92%;background:#F3EEE4;border-radius:16px 16px 0 0;box-shadow:0 12px 32px -8px rgba(33,29,23,0.35);overflow:hidden;display:flex;flex-direction:column;">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 11px 3px;flex-shrink:0;"><span style="font-size:6.5px;font-weight:700;color:#211D17;">9:41</span><span style="font-size:6.5px;color:#211D17;">▮▮▮ ⌁</span></div>
+              <div style="padding:1px 11px 7px;flex-shrink:0;"><div style="font-size:13px;font-weight:700;color:#211D17;letter-spacing:-0.02em;">Geyma</div><div style="font-size:6.5px;color:#7E7359;">Tilbake for deg</div></div>
+              <div style="padding:0 10px 6px;flex-shrink:0;"><div style="background:#FBF8F2;border:1px solid rgba(33,29,23,0.1);border-left:2.5px solid #2C6E49;border-radius:6px;padding:5px 7px;display:flex;align-items:center;gap:6px;animation:shelfIn 5s ease-in-out infinite;"><span style="width:16px;height:16px;border-radius:3px;background:#C6A2B8;flex-shrink:0;"></span><div><div style="font-size:7.5px;font-weight:600;color:#211D17;">skjøte.pdf</div><div style="font-size:6px;color:#7E7359;">dukket opp igjen · i dag</div></div></div></div>
+              <div style="padding:0 11px 2px;font-size:6px;letter-spacing:0.12em;text-transform:uppercase;color:#7E7359;flex-shrink:0;">Nylig aktivitet</div>
+              <div style="flex:1;padding:1px 11px;display:flex;flex-direction:column;gap:4px;min-height:0;overflow:hidden;">
+                <div style="display:flex;align-items:center;gap:6px;"><span style="width:5px;height:5px;border-radius:2px;background:#2C6E49;flex-shrink:0;"></span><span style="width:12px;height:12px;border-radius:3px;background:#D9C79B;flex-shrink:0;"></span><div style="min-width:0;line-height:1.2;"><div style="font-size:7px;color:#211D17;">IMG_204.jpg</div><div style="font-size:5.5px;color:#7E7359;">ankom · Kamera</div></div></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="width:5px;height:5px;border-radius:2px;background:#B4562E;flex-shrink:0;"></span><span style="width:12px;height:12px;border-radius:3px;background:#8FAE9B;flex-shrink:0;"></span><div style="min-width:0;line-height:1.2;"><div style="font-size:7px;color:#211D17;">notat.md</div><div style="font-size:5.5px;color:#7E7359;">flyttet → Arkiv</div></div></div>
+              </div>
+              <div style="height:22px;background:#E7E0D2;border-top:1px solid rgba(33,29,23,0.1);display:flex;align-items:center;justify-content:space-around;padding:0 6px;flex-shrink:0;"><span style="font-size:6px;color:#2C6E49;font-weight:600;">Hjem</span><span style="font-size:6px;color:#7E7359;">Tidslinje</span><span style="font-size:6px;color:#7E7359;">Almanakk</span><span style="font-size:6px;color:#7E7359;">Sett</span></div>
+            </div>
+          </div>
+          <div style="padding:24px 26px;">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9D9BF0;margin-bottom:8px;">Android · Filbehandler</div>
+            <h3 style="font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 8px;">Geyma Mobile</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#9CA0A6;margin:0;">Geyma for Android: minne-journal, ankomsthistorikk, Sweep og Revisit — alt på enheten, ingen sky.</p>
+          </div>
+        </a>
+        <a href="https://backlayer.vardir.no" target="_blank" rel="noopener" style="display:block;border-radius:20px;overflow:hidden;border:1px solid #262A31;background:#16181D;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),border-color 0.35s,box-shadow 0.35s;animation:cardIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%;" style-hover="transform:translateY(-6px);border-color:#4a48b8;box-shadow:0 24px 48px -20px rgba(88,86,224,0.45);">
+          <div style="aspect-ratio:16/10;overflow:hidden;background:#0B0D12;display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;">
+            <div style="height:14px;background:#13161D;border-bottom:1px solid #20242E;display:flex;align-items:center;gap:7px;padding:0 7px;flex-shrink:0;"><span style="font-size:6.5px;color:#7E8696;">Scene</span><span style="font-size:6.5px;color:#7E8696;">Effekter</span><span style="font-size:6.5px;color:#7E8696;">Partikler</span><span style="margin-left:auto;font-size:6.5px;color:#5A6069;">aurora.backlayer</span></div>
+            <div style="flex:1;display:flex;min-height:0;">
+              <div style="width:23%;background:#11141A;border-right:1px solid #20242E;padding:6px;display:flex;flex-direction:column;gap:4px;">
+                <div style="font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#7E8696;">Lag</div>
+                <div style="font-size:7px;color:#B0AEF5;background:rgba(88,86,224,0.16);border-radius:2px;padding:2px 5px;">Himmel</div>
+                <div style="font-size:7px;color:#7E8696;padding:1px 5px;">Fjell</div>
+                <div style="font-size:7px;color:#7E8696;padding:1px 5px;">Partikler ✦</div>
+                <div style="font-size:7px;color:#7E8696;padding:1px 5px;">Tåke</div>
+              </div>
+              <div style="flex:1;position:relative;background:linear-gradient(180deg,#1a1550 0%,#3a2a6e 45%,#8a4a7a 75%,#c06a5a 100%);overflow:hidden;">
+                <div style="position:absolute;top:14%;right:22%;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle,#FFE8B0,#F0A860);box-shadow:0 0 14px 4px rgba(240,168,96,0.5);animation:glowPulse 3.5s ease-in-out infinite;"></div>
+                <div style="position:absolute;left:0;right:0;top:22%;height:1px;background:rgba(255,255,255,0.14);"></div>
+                <div style="position:absolute;top:20%;left:18%;width:2px;height:2px;border-radius:50%;background:#fff;box-shadow:14px 6px 0 0 rgba(255,255,255,0.7),34px -2px 0 0 rgba(255,255,255,0.5),52px 10px 0 0 rgba(255,255,255,0.8),70px 2px 0 0 rgba(255,255,255,0.6);animation:twinkle 2.8s ease-in-out infinite;"></div>
+                <svg viewBox="0 0 120 40" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:52%;"><path d="M0 40 L0 20 L22 6 L44 22 L66 4 L92 24 L120 10 L120 40 Z" fill="#241a3e"/><path d="M0 40 L0 30 L30 16 L58 30 L84 14 L120 28 L120 40 Z" fill="#160f2a"/></svg>
+              </div>
+              <div style="width:24%;background:#11141A;border-left:1px solid #20242E;padding:6px;display:flex;flex-direction:column;gap:5px;">
+                <div style="font-size:6px;letter-spacing:0.1em;text-transform:uppercase;color:#7E8696;">Emitter</div>
+                <div style="display:flex;justify-content:space-between;"><span style="font-size:6.5px;color:#8A929C;">Rate</span><span style="font-size:6.5px;color:#B0AEF5;">120/s</span></div>
+                <div style="height:3px;background:#20242E;border-radius:2px;overflow:hidden;"><span style="display:block;width:64%;height:100%;background:#5856E0;"></span></div>
+                <div style="display:flex;justify-content:space-between;"><span style="font-size:6.5px;color:#8A929C;">Levetid</span><span style="font-size:6.5px;color:#B0AEF5;">3.2s</span></div>
+                <div style="height:3px;background:#20242E;border-radius:2px;overflow:hidden;"><span style="display:block;width:40%;height:100%;background:#5856E0;"></span></div>
+                <div style="margin-top:auto;font-size:6px;color:#65C27C;">● 60 fps · GPU</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:24px 26px;">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9D9BF0;margin-bottom:8px;">Linux · Bakgrunner</div>
+            <h3 style="font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 8px;">Backlayer</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#9CA0A6;margin:0;">Animerte bakgrunner for Hyprland: en daemon, scenekomponist og eget .backlayer-format — bilde, shader og partikkelscener.</p>
+          </div>
+        </a>
+        <a href="https://deploid.vardir.no" target="_blank" rel="noopener" style="display:block;border-radius:20px;overflow:hidden;border:1px solid #262A31;background:#16181D;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),border-color 0.35s,box-shadow 0.35s;animation:cardIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%;" style-hover="transform:translateY(-6px);border-color:#4a48b8;box-shadow:0 24px 48px -20px rgba(88,86,224,0.45);">
+          <div style="aspect-ratio:16/10;overflow:hidden;background:#0B0D12;display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;"><div style="height:17px;background:#14171F;border-bottom:1px solid #232838;display:flex;align-items:center;padding:0 9px;flex-shrink:0;"><span style="width:7px;height:7px;border-radius:50%;background:#E0605A;"></span><span style="width:7px;height:7px;border-radius:50%;background:#E8B84A;margin-left:5px;"></span><span style="width:7px;height:7px;border-radius:50%;background:#56B86B;margin-left:5px;"></span><span style="margin:0 auto;font-size:7.5px;color:#5A6069;">chris@halden — deploid</span></div><div style="flex:1;padding:9px 11px;font-size:8px;line-height:1.7;color:#8A929C;"><div><span style="color:#65C27C;">➜</span> <span style="color:#6CA8FF;">my-app</span> deploid ship --patch</div><div style="color:#5A6069;">→ framework: vite · 1.2.0 → 1.2.1</div><div style="color:#5A6069;">→ building web · syncing capacitor</div><div style="color:#65C27C;">✓ signed release AAB · 4.2 MB</div><div style="color:#65C27C;">✓ published to Play Store</div><div style="margin-top:1px;"><span style="color:#9D9BF0;">➜</span> <span style="display:inline-block;width:5px;height:8px;background:#8A929C;animation:blink 1.1s steps(1) infinite;"></span></div></div></div>
+          <div style="padding:24px 26px;">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9D9BF0;margin-bottom:8px;">CLI · Android</div>
+            <h3 style="font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 8px;">Deploid</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#9CA0A6;margin:0;">Pakker Vite-, Next- og React-apper til signerte Android-pakker — ikoner, signering og Play Store i én flyt.</p>
+          </div>
+        </a>
+        <a href="https://github.com/MadsenDev/fattern" target="_blank" rel="noopener" style="display:block;border-radius:20px;overflow:hidden;border:1px solid #262A31;background:#16181D;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),border-color 0.35s,box-shadow 0.35s;animation:cardIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%;" style-hover="transform:translateY(-6px);border-color:#4a48b8;box-shadow:0 24px 48px -20px rgba(88,86,224,0.45);">
+          <div style="aspect-ratio:16/10;overflow:hidden;background:#f0f8f5;display:flex;font-family:'Inter',sans-serif;"><div style="width:26%;background:#0d3e51;padding:9px 8px;display:flex;flex-direction:column;gap:6px;"><div style="display:flex;align-items:center;gap:5px;margin-bottom:2px;"><span style="width:11px;height:11px;border-radius:3px;background:linear-gradient(135deg,#2f8981,#67b999);"></span><span style="font-size:8.5px;font-weight:700;color:#fff;">Fattern</span></div><div style="font-size:7px;color:#a4d5c2;padding:1px 4px;">Oversikt</div><div style="font-size:7px;color:#fff;background:rgba(103,185,153,0.25);border-radius:3px;padding:2px 4px;">Faktura</div><div style="font-size:7px;color:#a4d5c2;padding:1px 4px;">Kunder</div><div style="font-size:7px;color:#a4d5c2;padding:1px 4px;">Utgifter</div></div><div style="flex:1;padding:10px 11px;display:flex;flex-direction:column;gap:6px;"><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:10px;font-weight:700;color:#0d3e51;">Faktura #014</span><span style="font-size:6.5px;font-weight:600;color:#2f8981;background:#e1f1eb;border-radius:999px;padding:2px 7px;animation:badgePulse 3s ease-in-out infinite;">Sendt</span></div><div style="display:flex;justify-content:space-between;font-size:8px;color:#1b5c64;font-family:'DM Mono',monospace;"><span style="font-family:'Inter',sans-serif;">Design</span><span>8 000</span></div><div style="display:flex;justify-content:space-between;font-size:8px;color:#1b5c64;border-bottom:1px solid #d6ebe2;padding-bottom:5px;font-family:'DM Mono',monospace;"><span style="font-family:'Inter',sans-serif;">Utvikling</span><span>24 000</span></div><div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:8px;color:#59a19a;">Sum eks. mva</span><span style="font-size:11px;font-weight:500;color:#2f8981;font-family:'DM Mono',monospace;">kr 32 000</span></div><div style="margin-top:auto;align-self:flex-end;font-size:7.5px;font-weight:600;color:#fff;background:#2f8981;border-radius:5px;padding:4px 11px;">Send</div></div></div>
+          <div style="padding:24px 26px;">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9D9BF0;margin-bottom:8px;">Lokal-først · Faktura</div>
+            <h3 style="font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 8px;">Fattern</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#9CA0A6;margin:0;">Gratis regnskap og faktura uten konto eller sky — du eier dataene dine selv.</p>
+          </div>
+        </a>
+        <a href="https://sindri.vardir.no" target="_blank" rel="noopener" style="display:block;border-radius:20px;overflow:hidden;border:1px solid #262A31;background:#16181D;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),border-color 0.35s,box-shadow 0.35s;animation:cardIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%;" style-hover="transform:translateY(-6px);border-color:#4a48b8;box-shadow:0 24px 48px -20px rgba(88,86,224,0.45);">
+          <div style="aspect-ratio:16/10;overflow:hidden;background:#0C0E13;display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;"><div style="height:14px;background:#13161D;border-bottom:1px solid #20242E;display:flex;align-items:center;padding:0 7px;gap:8px;flex-shrink:0;"><span style="font-size:6.5px;color:#7E8696;">File</span><span style="font-size:6.5px;color:#7E8696;">Edit</span><span style="font-size:6.5px;color:#7E8696;">Entity</span><span style="margin-left:auto;font-size:6.5px;color:#5A6069;">scene.lua</span></div><div style="height:13px;background:#0F1219;border-bottom:1px solid #20242E;display:flex;align-items:center;gap:3px;padding:0 6px;flex-shrink:0;"><span style="width:9px;height:7px;background:#5856E0;border-radius:1px;"></span><span style="width:9px;height:7px;background:#262B36;border-radius:1px;"></span><span style="width:9px;height:7px;background:#262B36;border-radius:1px;"></span></div><div style="flex:1;display:flex;min-height:0;"><div style="width:24%;background:#11141A;border-right:1px solid #20242E;padding:6px 6px;display:flex;flex-direction:column;gap:4px;"><div style="font-size:6.5px;color:#7E8696;">▾ Scene</div><div style="font-size:7px;color:#9D9BF0;background:rgba(88,86,224,0.16);border-radius:2px;padding:1px 5px;margin-left:6px;">Player</div><div style="font-size:7px;color:#7E8696;padding:0 5px;margin-left:6px;">Camera</div><div style="font-size:7px;color:#7E8696;padding:0 5px;margin-left:6px;">Ground</div><div style="font-size:7px;color:#7E8696;padding:0 5px;margin-left:6px;">Enemy</div></div><div style="flex:1;background:#171A21;background-image:linear-gradient(#20242E 1px,transparent 1px),linear-gradient(90deg,#20242E 1px,transparent 1px);background-size:11px 11px;display:flex;align-items:center;justify-content:center;"><div style="width:20px;height:20px;border-radius:4px;background:linear-gradient(135deg,#5856E0,#9D5BE0);box-shadow:0 0 0 1.5px #6ae0c6, 0 0 0 4px rgba(106,224,198,0.25);animation:ghostPulse 3s ease-in-out infinite;"></div></div><div style="width:24%;background:#11141A;border-left:1px solid #20242E;padding:6px 6px;display:flex;flex-direction:column;gap:4px;"><div style="font-size:6.5px;color:#7E8696;">Transform</div><div style="display:flex;gap:3px;"><span style="flex:1;height:6px;background:#262B36;border-radius:2px;"></span><span style="flex:1;height:6px;background:#262B36;border-radius:2px;"></span></div><div style="font-size:6.5px;color:#7E8696;margin-top:2px;">Sprite</div><span style="width:12px;height:8px;background:#5856E0;border-radius:2px;"></span></div></div><div style="height:14px;background:#0F1219;border-top:1px solid #20242E;display:flex;align-items:center;padding:0 7px;flex-shrink:0;"><span style="font-size:6px;color:#65C27C;">▸ rapier2d ready</span></div></div>
+          <div style="padding:24px 26px;">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9D9BF0;margin-bottom:8px;">Spillmotor · Rust</div>
+            <h3 style="font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 8px;">Sindri Engine</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#9CA0A6;margin:0;">2D-spillmotor med editor, fysikk og Lua-skripting, bygget fra bunnen i Rust.</p>
+          </div>
+        </a>
+      </div>
+      <sc-if value="{{ showAllProjects }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:18px;animation:revealIn 0.55s cubic-bezier(0.22,1,0.36,1) both;">
+        <a href="https://github.com/MadsenDev/skald-v2" target="_blank" rel="noopener" style="display:block;border-radius:20px;overflow:hidden;border:1px solid #262A31;background:#16181D;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),border-color 0.35s,box-shadow 0.35s;animation:cardIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%;" style-hover="transform:translateY(-6px);border-color:#4a48b8;box-shadow:0 24px 48px -20px rgba(88,86,224,0.45);">
+          <div style="aspect-ratio:16/10;overflow:hidden;background:#0a0c10;display:flex;flex-direction:column;font-family:'Hanken Grotesk',sans-serif;"><div style="height:15px;background:#0d1015;border-bottom:1px solid #1d2531;display:flex;align-items:center;padding:0 7px;flex-shrink:0;"><span style="width:6px;height:6px;border-radius:50%;background:#2b3340;"></span><span style="width:6px;height:6px;border-radius:50%;background:#2b3340;margin-left:4px;"></span><span style="width:6px;height:6px;border-radius:50%;background:#2b3340;margin-left:4px;"></span><span style="margin:0 auto;font-size:7px;color:#5e6a7a;font-family:'JetBrains Mono',monospace;">Skald</span></div><div style="flex:1;display:flex;min-height:0;"><div style="width:30%;background:#0d1015;border-right:1px solid #1d2531;padding:8px 7px;display:flex;flex-direction:column;gap:5px;"><div style="font-size:7px;letter-spacing:0.12em;color:#5e6a7a;text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Vault</div><div style="display:flex;align-items:center;gap:5px;background:rgba(106,224,198,0.13);border-radius:3px;padding:3px 5px;"><span style="width:5px;height:5px;border-radius:1px;background:#84d99a;"></span><span style="font-size:8px;color:#6ae0c6;">Daily</span></div><div style="display:flex;align-items:center;gap:5px;padding:0 5px;"><span style="width:5px;height:5px;border-radius:1px;background:#f0a878;"></span><span style="font-size:8px;color:#8a95a4;">Skald</span></div><div style="display:flex;align-items:center;gap:5px;padding:0 5px;"><span style="width:5px;height:5px;border-radius:1px;background:#6cb2ff;"></span><span style="font-size:8px;color:#8a95a4;">Ada L.</span></div><div style="display:flex;align-items:center;gap:5px;padding:0 5px;"><span style="width:5px;height:5px;border-radius:1px;background:#6ae0c6;"></span><span style="font-size:8px;color:#8a95a4;">Ideas</span></div></div><div style="flex:1;padding:10px 11px;display:flex;flex-direction:column;gap:6px;"><div style="font-weight:700;font-size:12px;color:#eaeef4;">2026-06-30</div><div style="height:4px;width:82%;background:#1c2330;border-radius:2px;"></div><div style="height:4px;width:64%;background:#1c2330;border-radius:2px;"></div><div style="display:flex;align-items:center;gap:6px;margin-top:2px;"><span style="width:10px;height:10px;border:1.5px solid #6ae0c6;border-radius:2px;animation:checkPop 4s ease-in-out infinite;"></span><span style="font-size:8.5px;color:#c3ccd8;">Ship v0.2</span></div><div style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;background:#6ae0c6;border-radius:2px;"></span><span style="font-size:8.5px;color:#5e6a7a;text-decoration:line-through;">Write README</span></div><div style="margin-top:1px;"><span style="font-size:8px;color:#6ae0c6;background:rgba(106,224,198,0.13);border-radius:3px;padding:1px 5px;">[[Ada L.]]</span></div></div></div><div style="height:13px;background:#0d1015;border-top:1px solid #1d2531;display:flex;align-items:center;justify-content:flex-end;padding:0 8px;flex-shrink:0;"><span style="font-size:6.5px;color:#5e6a7a;font-family:'JetBrains Mono',monospace;">12 notes · 3 tasks</span></div></div>
+          <div style="padding:24px 26px;">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9D9BF0;margin-bottom:8px;">Lokal-først · Notater</div>
+            <h3 style="font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 8px;">Skald</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#9CA0A6;margin:0;">Markdown-arbeidsbenk med wikilenker, oppgaver, kunnskapsgraf og full-tekst søk — notatene dine som vanlige .md-filer.</p>
+          </div>
+        </a>
+        <a href="https://github.com/MadsenDev/vitni" target="_blank" rel="noopener" style="display:block;border-radius:20px;overflow:hidden;border:1px solid #262A31;background:#16181D;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),border-color 0.35s,box-shadow 0.35s;animation:cardIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%;" style-hover="transform:translateY(-6px);border-color:#4a48b8;box-shadow:0 24px 48px -20px rgba(88,86,224,0.45);">
+          <div style="aspect-ratio:16/10;overflow:hidden;background:#0f172a;display:flex;flex-direction:column;font-family:'Inter',sans-serif;"><div style="height:15px;background:#0b1220;border-bottom:1px solid #1e293b;display:flex;align-items:center;padding:0 7px;flex-shrink:0;"><span style="width:6px;height:6px;border-radius:50%;background:#334155;"></span><span style="width:6px;height:6px;border-radius:50%;background:#334155;margin-left:4px;"></span><span style="width:6px;height:6px;border-radius:50%;background:#334155;margin-left:4px;"></span><span style="margin:0 auto;font-size:7px;color:#64748b;">Vitni · Glass Harbor</span></div><div style="flex:1;display:flex;min-height:0;"><div style="width:20%;background:#0b1220;border-right:1px solid #1e293b;padding:7px 5px;display:flex;flex-direction:column;gap:5px;"><div style="display:flex;align-items:center;gap:4px;"><span style="width:6px;height:6px;border-radius:999px;background:#38bdf8;"></span><span style="height:3px;flex:1;background:#1e293b;border-radius:2px;"></span></div><div style="display:flex;align-items:center;gap:4px;"><span style="width:6px;height:6px;border-radius:999px;background:#fbbf24;"></span><span style="height:3px;flex:1;background:#1e293b;border-radius:2px;"></span></div><div style="display:flex;align-items:center;gap:4px;"><span style="width:6px;height:6px;border-radius:999px;background:#34d399;"></span><span style="height:3px;flex:1;background:#1e293b;border-radius:2px;"></span></div></div><div style="flex:1;position:relative;background:#0f172a;"><svg viewBox="0 0 120 88" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;"><line x1="28" y1="24" x2="60" y2="46" stroke="#334155" stroke-width="1.2"/><line x1="86" y1="20" x2="60" y2="46" stroke="#334155" stroke-width="1.2"/><line x1="60" y1="46" x2="96" y2="60" stroke="#334155" stroke-width="1.2"/><line x1="60" y1="46" x2="40" y2="72" stroke="#334155" stroke-width="1.2"/><circle cx="28" cy="24" r="4" fill="#1e293b" stroke="#475569"/><circle cx="86" cy="20" r="4" fill="#38bdf8"/><circle cx="96" cy="60" r="4" fill="#1e293b" stroke="#475569"/><circle cx="40" cy="72" r="4" fill="#1e293b" stroke="#475569"/><circle cx="60" cy="46" r="6.5" fill="#38bdf8" style="animation:nodePulse 3s ease-in-out infinite;"/></svg></div><div style="width:24%;background:#0b1220;border-left:1px solid #1e293b;padding:7px 6px;display:flex;flex-direction:column;gap:5px;"><div style="font-size:6.5px;letter-spacing:0.1em;color:#64748b;text-transform:uppercase;">Inspector</div><div style="height:3px;width:90%;background:#1e293b;border-radius:2px;"></div><div style="height:3px;width:70%;background:#1e293b;border-radius:2px;"></div><div style="font-size:6.5px;color:#0f172a;background:#38bdf8;border-radius:3px;padding:1px 5px;align-self:flex-start;font-weight:600;">verified</div></div></div></div>
+          <div style="padding:24px 26px;">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9D9BF0;margin-bottom:8px;">Desktop · Etterforskning</div>
+            <h3 style="font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 8px;">Vitni</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#9CA0A6;margin:0;">Lokal-først arbeidsbenk for strukturerte etterforskninger: entiteter, kildebelagte påstander og tidslinje.</p>
+          </div>
+        </a>
+        <a href="https://github.com/MadsenDev/nuvibe-music-player" target="_blank" rel="noopener" style="display:block;border-radius:20px;overflow:hidden;border:1px solid #262A31;background:#16181D;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),border-color 0.35s,box-shadow 0.35s;animation:cardIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%;" style-hover="transform:translateY(-6px);border-color:#4a48b8;box-shadow:0 24px 48px -20px rgba(88,86,224,0.45);">
+          <div style="aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,#070810 0%,#0d1020 60%,#0a0b14 100%);display:flex;flex-direction:column;font-family:'IBM Plex Sans',sans-serif;"><div style="flex:1;display:flex;min-height:0;"><div style="width:28%;background:linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01));border-right:1px solid rgba(255,255,255,0.06);padding:9px 8px;display:flex;flex-direction:column;gap:5px;"><div style="font-family:'Fraunces',serif;font-size:9px;font-weight:700;color:#fff;margin-bottom:2px;">Bibliotek</div><div style="font-size:7.5px;color:#a1a1aa;">Sanger</div><div style="font-size:7.5px;color:#fff;background:rgba(99,102,241,0.18);border-radius:3px;padding:2px 5px;">Album</div><div style="font-size:7.5px;color:#a1a1aa;">Spillelister</div><div style="height:1px;background:rgba(255,255,255,0.06);margin:2px 0;"></div><div style="font-size:7.5px;color:#a1a1aa;">Nattlys</div><div style="font-size:7.5px;color:#a1a1aa;">Aurora EP</div></div><div style="flex:1;padding:10px 11px;display:flex;gap:9px;align-items:center;"><div style="width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,#6366f1,#ec4899);box-shadow:0 8px 18px -6px rgba(99,102,241,0.7);flex-shrink:0;"></div><div style="display:flex;flex-direction:column;gap:3px;"><div style="font-family:'Fraunces',serif;font-size:12px;font-weight:600;color:#fff;letter-spacing:-0.02em;">Nattlys</div><div style="font-size:8px;color:#a1a1aa;">Aurora</div></div></div></div><div style="height:24px;background:rgba(11,12,21,0.72);border-top:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:8px;padding:0 11px;flex-shrink:0;"><span style="width:14px;height:14px;border-radius:3px;background:linear-gradient(135deg,#6366f1,#ec4899);flex-shrink:0;"></span><span style="font-size:7px;color:#fff;">Nattlys</span><span style="display:flex;align-items:flex-end;gap:1.5px;height:10px;margin-left:4px;"><span style="width:2px;background:#ec4899;border-radius:1px;animation:eq1 0.9s ease-in-out infinite;"></span><span style="width:2px;background:#6366f1;border-radius:1px;animation:eq2 0.7s ease-in-out infinite;"></span><span style="width:2px;background:#ec4899;border-radius:1px;animation:eq3 1.1s ease-in-out infinite;"></span></span><span style="color:#a1a1aa;font-size:8px;margin-left:auto;">◁◁</span><span style="width:14px;height:14px;border-radius:999px;background:#6366f1;display:flex;align-items:center;justify-content:center;color:#fff;font-size:6px;">▶</span><span style="color:#a1a1aa;font-size:8px;">▷▷</span></div></div>
+          <div style="padding:24px 26px;">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9D9BF0;margin-bottom:8px;">Desktop · Musikk</div>
+            <h3 style="font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 8px;">Nuvibe</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#9CA0A6;margin:0;">Musikkspiller for lokalt bibliotek med spillelister, kø og visualisering — bygget på Electron og SQLite.</p>
+          </div>
+        </a>
+        <a href="https://github.com/vardirhq/sindri-pixel" target="_blank" rel="noopener" style="display:block;border-radius:20px;overflow:hidden;border:1px solid #262A31;background:#16181D;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),border-color 0.35s,box-shadow 0.35s;animation:cardIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%;" style-hover="transform:translateY(-6px);border-color:#4a48b8;box-shadow:0 24px 48px -20px rgba(88,86,224,0.45);">
+          <div style="aspect-ratio:16/10;overflow:hidden;background:#0d1117;display:flex;flex-direction:column;font-family:'Inter',sans-serif;"><div style="height:14px;background:#10151c;border-bottom:1px solid #262d38;display:flex;align-items:center;gap:7px;padding:0 7px;flex-shrink:0;"><span style="font-size:6.5px;color:#a8a298;">Fil</span><span style="font-size:6.5px;color:#a8a298;">Rediger</span><span style="font-size:6.5px;color:#a8a298;">Vis</span><span style="margin-left:auto;font-size:6.5px;color:#6e6960;">drone.sindri</span><span style="font-size:6.5px;color:#f0c050;">✦ Compose</span></div><div style="flex:1;display:flex;min-height:0;"><div style="width:13%;background:#10151c;border-right:1px solid #262d38;display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:6px 5px;align-content:start;"><span style="aspect-ratio:1;background:#6dbcdb;border-radius:2px;box-shadow:0 0 0 1px #e6e1d4;animation:swatchCycle 5s steps(1) infinite;"></span><span style="aspect-ratio:1;background:#3a6e8a;border-radius:2px;"></span><span style="aspect-ratio:1;background:#9bb070;border-radius:2px;"></span><span style="aspect-ratio:1;background:#d4541e;border-radius:2px;"></span><span style="aspect-ratio:1;background:#a8a298;border-radius:2px;"></span><span style="aspect-ratio:1;background:#4a4642;border-radius:2px;"></span></div><div style="flex:1;display:flex;align-items:center;justify-content:center;background-color:#141a22;background-image:linear-gradient(rgba(110,105,96,0.22) 1px,transparent 1px),linear-gradient(90deg,rgba(110,105,96,0.22) 1px,transparent 1px);background-size:8px 8px;"><svg viewBox="0 0 14 13" width="62" height="58" shape-rendering="crispEdges" style="animation:droneBob 2.2s ease-in-out infinite;"><rect x="9" y="0" width="1" height="2" fill="#1a1a1a"/><rect x="2" y="2" width="8" height="1" fill="#1a1a1a"/><rect x="1" y="3" width="1" height="1" fill="#1a1a1a"/><rect x="2" y="3" width="1" height="1" fill="#4a4642"/><rect x="3" y="3" width="6" height="1" fill="#6e6960"/><rect x="9" y="3" width="1" height="1" fill="#4a4642"/><rect x="10" y="3" width="1" height="1" fill="#1a1a1a"/><rect x="0" y="4" width="1" height="1" fill="#1a1a1a"/><rect x="1" y="4" width="1" height="1" fill="#4a4642"/><rect x="2" y="4" width="1" height="1" fill="#6e6960"/><rect x="3" y="4" width="1" height="1" fill="#a8a298"/><rect x="4" y="4" width="5" height="1" fill="#6e6960"/><rect x="9" y="4" width="1" height="1" fill="#a8a298"/><rect x="10" y="4" width="1" height="1" fill="#6e6960"/><rect x="11" y="4" width="1" height="1" fill="#4a4642"/><rect x="12" y="4" width="1" height="1" fill="#1a1a1a"/><rect x="0" y="5" width="1" height="1" fill="#1a1a1a"/><rect x="1" y="5" width="1" height="1" fill="#6e6960"/><rect x="2" y="5" width="1" height="1" fill="#a8a298"/><rect x="3" y="5" width="1" height="1" fill="#3a6e8a"/><rect x="4" y="5" width="4" height="1" fill="#6dbcdb"/><rect x="8" y="5" width="1" height="1" fill="#3a6e8a"/><rect x="9" y="5" width="1" height="1" fill="#a8a298"/><rect x="10" y="5" width="2" height="1" fill="#6e6960"/><rect x="12" y="5" width="1" height="1" fill="#1a1a1a"/><rect x="0" y="6" width="1" height="1" fill="#1a1a1a"/><rect x="1" y="6" width="1" height="1" fill="#6e6960"/><rect x="2" y="6" width="1" height="1" fill="#a8a298"/><rect x="3" y="6" width="6" height="1" fill="#6dbcdb"/><rect x="9" y="6" width="1" height="1" fill="#a8a298"/><rect x="10" y="6" width="2" height="1" fill="#6e6960"/><rect x="12" y="6" width="1" height="1" fill="#1a1a1a"/><rect x="0" y="7" width="1" height="1" fill="#1a1a1a"/><rect x="1" y="7" width="1" height="1" fill="#4a4642"/><rect x="2" y="7" width="1" height="1" fill="#6e6960"/><rect x="3" y="7" width="1" height="1" fill="#3a6e8a"/><rect x="4" y="7" width="4" height="1" fill="#6dbcdb"/><rect x="8" y="7" width="1" height="1" fill="#3a6e8a"/><rect x="9" y="7" width="1" height="1" fill="#a8a298"/><rect x="10" y="7" width="1" height="1" fill="#6e6960"/><rect x="11" y="7" width="1" height="1" fill="#4a4642"/><rect x="12" y="7" width="1" height="1" fill="#1a1a1a"/><rect x="0" y="8" width="1" height="1" fill="#1a1a1a"/><rect x="1" y="8" width="1" height="1" fill="#4a4642"/><rect x="2" y="8" width="2" height="1" fill="#6e6960"/><rect x="4" y="8" width="1" height="1" fill="#a8a298"/><rect x="5" y="8" width="2" height="1" fill="#6e6960"/><rect x="7" y="8" width="1" height="1" fill="#a8a298"/><rect x="8" y="8" width="3" height="1" fill="#6e6960"/><rect x="11" y="8" width="1" height="1" fill="#4a4642"/><rect x="12" y="8" width="1" height="1" fill="#1a1a1a"/><rect x="1" y="9" width="1" height="1" fill="#1a1a1a"/><rect x="2" y="9" width="1" height="1" fill="#4a4642"/><rect x="3" y="9" width="6" height="1" fill="#6e6960"/><rect x="9" y="9" width="1" height="1" fill="#4a4642"/><rect x="10" y="9" width="1" height="1" fill="#1a1a1a"/><rect x="2" y="10" width="2" height="1" fill="#1a1a1a"/><rect x="4" y="10" width="4" height="1" fill="#d4541e"/><rect x="8" y="10" width="2" height="1" fill="#1a1a1a"/><rect x="3" y="11" width="1" height="1" fill="#1a1a1a"/><rect x="4" y="11" width="1" height="1" fill="#d4541e"/><rect x="5" y="11" width="2" height="1" fill="#a03a0e"/><rect x="7" y="11" width="1" height="1" fill="#d4541e"/><rect x="8" y="11" width="1" height="1" fill="#1a1a1a"/><rect x="4" y="12" width="1" height="1" fill="#1a1a1a"/><rect x="5" y="12" width="2" height="1" fill="#d4541e"/><rect x="7" y="12" width="1" height="1" fill="#1a1a1a"/></svg></div><div style="width:24%;background:#10151c;border-left:1px solid #262d38;padding:6px 6px;display:flex;flex-direction:column;gap:5px;"><div style="font-size:6.5px;color:#a8a298;">Lag</div><div style="font-size:7px;color:#e6e1d4;background:#1c232d;border-radius:2px;padding:2px 4px;">drone</div><div style="font-size:6.5px;color:#a8a298;margin-top:2px;">Palett</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;"><span style="aspect-ratio:1;background:#6dbcdb;border-radius:1px;"></span><span style="aspect-ratio:1;background:#3a6e8a;border-radius:1px;"></span><span style="aspect-ratio:1;background:#9bb070;border-radius:1px;"></span><span style="aspect-ratio:1;background:#5a7038;border-radius:1px;"></span><span style="aspect-ratio:1;background:#d4541e;border-radius:1px;"></span><span style="aspect-ratio:1;background:#e05555;border-radius:1px;"></span><span style="aspect-ratio:1;background:#a8a298;border-radius:1px;"></span><span style="aspect-ratio:1;background:#e6e1d4;border-radius:1px;"></span></div><div style="margin-top:auto;font-size:6px;color:#f0c050;background:rgba(240,192,80,0.1);border-radius:3px;padding:2px 4px;">✦ Forslag: 4 rammer</div></div></div><div style="height:15px;background:#10151c;border-top:1px solid #262d38;display:flex;align-items:center;gap:3px;padding:0 6px;flex-shrink:0;"><span style="width:13px;height:9px;background:#3a6e8a;border-radius:1px;box-shadow:0 0 0 1px #6dbcdb;"></span><span style="width:13px;height:9px;background:#1c232d;border-radius:1px;"></span><span style="width:13px;height:9px;background:#1c232d;border-radius:1px;"></span><span style="width:13px;height:9px;background:#1c232d;border-radius:1px;"></span><span style="margin-left:auto;font-size:6px;color:#6e6960;">120 ms · 32×32</span></div></div>
+          <div style="padding:24px 26px;">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9D9BF0;margin-bottom:8px;">Desktop · Pixel art</div>
+            <h3 style="font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 8px;">Sindri Pixel</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#9CA0A6;margin:0;">Pixelkunst-studio med lag, animasjonstidslinje, innebygde leksjoner og AI-komponerte rammer — bygget på Tauri.</p>
+          </div>
+        </a>
+        <a href="https://github.com/MadsenDev/tunga" target="_blank" rel="noopener" style="display:block;border-radius:20px;overflow:hidden;border:1px solid #262A31;background:#16181D;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),border-color 0.35s,box-shadow 0.35s;animation:cardIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%;" style-hover="transform:translateY(-6px);border-color:#4a48b8;box-shadow:0 24px 48px -20px rgba(88,86,224,0.45);">
+          <div style="aspect-ratio:16/10;overflow:hidden;background:#0E1016;display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;"><div style="height:17px;background:#161922;border-bottom:1px solid #232838;display:flex;align-items:center;padding:0 9px;flex-shrink:0;"><span style="width:7px;height:7px;border-radius:50%;background:#E0605A;"></span><span style="width:7px;height:7px;border-radius:50%;background:#E8B84A;margin-left:5px;"></span><span style="width:7px;height:7px;border-radius:50%;background:#56B86B;margin-left:5px;"></span><span style="margin:0 auto;font-size:7.5px;color:#5A6069;">tunga</span></div><div style="flex:1;padding:8px 10px;font-size:7.5px;line-height:1.65;color:#8A929C;"><div><span style="color:#65C27C;">➜</span> tunga scan</div><div style="color:#5A6069;">Found 3 candidate strings</div><div style="color:#6F7681;">Header.tsx:12 <span style="color:#9D9BF0;">JSX</span> &quot;Save&quot;</div><div style="color:#6F7681;">Search.tsx:8 <span style="color:#9D9BF0;">attr</span> &quot;Search&quot;</div><div style="margin-top:3px;color:#D77468;background:rgba(224,96,90,0.10);border-radius:3px;padding:1px 6px;animation:fadeCycle 6s ease-in-out infinite;">- &lt;button&gt;Save&lt;/button&gt;</div><div style="color:#65C27C;background:rgba(101,194,124,0.10);border-radius:3px;padding:1px 6px;animation:fadeCycle 6s ease-in-out 0.5s infinite;">+ {t(&quot;ui.header.save&quot;)}</div></div></div>
+          <div style="padding:24px 26px;">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9D9BF0;margin-bottom:8px;">Utviklerverktøy · i18n</div>
+            <h3 style="font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 8px;">Tunga</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#9CA0A6;margin:0;">Finner hardkodede UI-strenger og automatiserer i18n-migrering med trygge, lesbare kodeendringer.</p>
+          </div>
+        </a>
+        <a href="https://github.com/MadsenDev/friskr" target="_blank" rel="noopener" style="display:block;border-radius:20px;overflow:hidden;border:1px solid #262A31;background:#16181D;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),border-color 0.35s,box-shadow 0.35s;animation:cardIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%;" style-hover="transform:translateY(-6px);border-color:#4a48b8;box-shadow:0 24px 48px -20px rgba(88,86,224,0.45);">
+          <div style="aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,#E7F4EC,#CFE7D7);display:flex;align-items:flex-end;justify-content:center;font-family:'Inter',sans-serif;"><div style="width:128px;height:90%;background:#fff;border-radius:18px 18px 0 0;box-shadow:0 10px 30px -8px rgba(21,160,90,0.4);overflow:hidden;display:flex;flex-direction:column;"><div style="display:flex;align-items:center;justify-content:space-between;padding:6px 10px 2px;"><span style="font-size:6.5px;font-weight:600;color:#16241B;">9:41</span><span style="font-size:6.5px;color:#16241B;">▮▮▮ ⌁</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:2px 10px 6px;"><span style="font-size:11px;font-weight:700;color:#15a05a;letter-spacing:-0.02em;">friskr</span><span style="width:14px;height:14px;border-radius:999px;background:#E3F4EA;"></span></div><div style="display:flex;gap:3px;padding:0 9px 7px;"><span style="font-size:7px;font-weight:600;color:#fff;background:#15a05a;border-radius:999px;padding:2px 7px;">Kjøl</span><span style="font-size:7px;color:#3A463E;background:#F0F3F1;border-radius:999px;padding:2px 7px;">Frys</span><span style="font-size:7px;color:#3A463E;background:#F0F3F1;border-radius:999px;padding:2px 7px;">Skap</span></div><div style="flex:1;padding:0 9px;display:flex;flex-direction:column;gap:5px;"><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:8px;color:#16241B;">Melk</span><span style="font-size:6.5px;font-weight:600;color:#15a05a;background:#E3F4EA;border-radius:999px;padding:1px 6px;">5 d</span></div><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:8px;color:#16241B;">Kylling</span><span style="font-size:6.5px;font-weight:600;color:#C2722C;background:#FBEFDF;border-radius:999px;padding:1px 6px;animation:badgePulse 2.4s ease-in-out infinite;">I dag</span></div><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:8px;color:#16241B;">Ost</span><span style="font-size:6.5px;font-weight:600;color:#D35D50;background:#FBE7E5;border-radius:999px;padding:1px 6px;">-2 d</span></div></div><div style="display:flex;justify-content:space-around;align-items:center;padding:6px 0;border-top:1px solid #EEF2F0;"><span style="width:9px;height:9px;border-radius:2px;background:#15a05a;"></span><span style="width:9px;height:9px;border-radius:2px;background:#CBD5D0;"></span><span style="width:9px;height:9px;border-radius:2px;background:#CBD5D0;"></span><span style="width:9px;height:9px;border-radius:2px;background:#CBD5D0;"></span></div></div></div>
+          <div style="padding:24px 26px;">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#9D9BF0;margin-bottom:8px;">Android · Web</div>
+            <h3 style="font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 8px;">Friskr</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#9CA0A6;margin:0;">Delt husholdnings-app for matlager og utløpsdatoer, med strekkode- og datoskanning. Norsk først.</p>
+          </div>
+        </a>
+        </div>
+      </sc-if>
+      <div style="display:flex;justify-content:center;margin-top:40px;">
+        <button onClick="{{ toggleProjects }}" style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;color:#F2F1EC;background:transparent;border:1px solid #363B44;border-radius:12px;padding:13px 28px;cursor:pointer;transition:border-color 0.25s,background 0.25s;" style-hover="border-color:#5856E0;background:rgba(88,86,224,0.1);">{{ projectsToggleLabel }}</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROSESS -->
+  <section id="prosess" style="max-width:1200px;margin:0 auto;padding:clamp(64px,9vw,112px) clamp(20px,5vw,48px);">
+    <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#5856E0;margin-bottom:14px;">03 · Prosess</div>
+    <h2 style="font-weight:600;font-size:clamp(30px,4.5vw,48px);letter-spacing:-0.03em;line-height:1.05;margin:0 0 48px;max-width:620px;">Slik jobber vi</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
+      <div style="border-top:2px solid #15181D;padding-top:20px;">
+        <div style="font-family:'Space Mono',monospace;font-size:13px;color:#5856E0;margin-bottom:14px;">01</div>
+        <h3 style="font-weight:600;font-size:19px;letter-spacing:-0.02em;margin:0 0 10px;">Forstå</h3>
+        <p style="font-size:14.5px;line-height:1.6;color:#5A5D62;margin:0;">Vi setter oss inn i målene, brukerne og begrensningene før en linje kode skrives.</p>
+      </div>
+      <div style="border-top:2px solid #15181D;padding-top:20px;">
+        <div style="font-family:'Space Mono',monospace;font-size:13px;color:#5856E0;margin-bottom:14px;">02</div>
+        <h3 style="font-weight:600;font-size:19px;letter-spacing:-0.02em;margin:0 0 10px;">Forme</h3>
+        <p style="font-size:14.5px;line-height:1.6;color:#5A5D62;margin:0;">Raske prototyper og tett dialog — dere ser fremdrift hver uke, ikke etter måneder.</p>
+      </div>
+      <div style="border-top:2px solid #15181D;padding-top:20px;">
+        <div style="font-family:'Space Mono',monospace;font-size:13px;color:#5856E0;margin-bottom:14px;">03</div>
+        <h3 style="font-weight:600;font-size:19px;letter-spacing:-0.02em;margin:0 0 10px;">Bygge</h3>
+        <p style="font-size:14.5px;line-height:1.6;color:#5A5D62;margin:0;">Ren, testet kode satt i produksjon med automatisert utrulling og overvåkning.</p>
+      </div>
+      <div style="border-top:2px solid #15181D;padding-top:20px;">
+        <div style="font-family:'Space Mono',monospace;font-size:13px;color:#5856E0;margin-bottom:14px;">04</div>
+        <h3 style="font-weight:600;font-size:19px;letter-spacing:-0.02em;margin:0 0 10px;">Drifte</h3>
+        <p style="font-size:14.5px;line-height:1.6;color:#5A5D62;margin:0;">Vi blir værende — vedlikehold, videreutvikling og support når dere trenger det.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OM -->
+  <section id="om" style="background:#E9E8E2;border-top:1px solid #E2E1DB;border-bottom:1px solid #E2E1DB;">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(64px,9vw,112px) clamp(20px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(32px,5vw,64px);align-items:center;">
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#5856E0;margin-bottom:14px;">04 · Om oss</div>
+        <h2 style="font-weight:600;font-size:clamp(28px,4vw,42px);letter-spacing:-0.03em;line-height:1.1;margin:0 0 22px;">Ett studio, fullt eierskap.</h2>
+        <p style="font-size:16.5px;line-height:1.65;color:#5A5D62;margin:0 0 16px;">Vardir er et uavhengig utviklingsstudio i Halden, drevet av Christoffer Madsen. Bak hvert prosjekt står én person som eier hele veien — fra datamodell og logikk til grensesnitt og leveranse.</p>
+        <p style="font-size:16.5px;line-height:1.65;color:#5A5D62;margin:0;">Filosofien er lokal-først og brukervennlig: programvare som respekterer tiden og dataene dine, fungerer offline der det gir mening, og varer lenger enn neste trend.</p>
+      </div>
+      <div style="display:flex;gap:clamp(16px,3vw,40px);flex-wrap:wrap;">
+        <div><div style="font-weight:600;font-size:clamp(36px,5vw,52px);letter-spacing:-0.03em;color:#15181D;">5+</div><div style="font-size:14px;color:#6B6E73;margin-top:4px;">år erfaring</div></div>
+        <div><div style="font-weight:600;font-size:clamp(36px,5vw,52px);letter-spacing:-0.03em;color:#15181D;">100+</div><div style="font-size:14px;color:#6B6E73;margin-top:4px;">prosjekter</div></div>
+        <div><div style="font-weight:600;font-size:clamp(36px,5vw,52px);letter-spacing:-0.03em;color:#15181D;">100%</div><div style="font-size:14px;color:#6B6E73;margin-top:4px;">in-house</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT CTA -->
+  <section id="kontakt" style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,5vw,48px);">
+    <div style="background:#5856E0;border-radius:28px;padding:clamp(40px,6vw,80px);text-align:center;position:relative;overflow:hidden;">
+      <svg viewBox="0 0 100 100" width="360" height="360" style="position:absolute;left:-100px;bottom:-130px;opacity:0.12;pointer-events:none;"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#fff" fill-rule="evenodd"/></svg>
+      <div style="position:relative;z-index:1;">
+        <h2 style="font-weight:600;font-size:clamp(30px,4.5vw,52px);letter-spacing:-0.03em;line-height:1.05;color:#fff;margin:0 0 18px;text-wrap:balance;">Har du noe som bør bygges?</h2>
+        <p style="font-size:clamp(16px,2vw,19px);line-height:1.55;color:rgba(255,255,255,0.85);margin:0 auto 34px;max-width:480px;">Fortell oss kort om prosjektet, så svarer vi innen en arbeidsdag.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+          <a href="mailto:chris@vardir.no" style="font-size:16px;font-weight:500;color:#5856E0;background:#fff;border-radius:12px;padding:15px 32px;">chris@vardir.no</a>
+          <a href="tel:+4790244044" style="font-size:16px;font-weight:500;color:#fff;border:1px solid rgba(255,255,255,0.5);border-radius:12px;padding:15px 32px;">+47 902 44 044</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid #E2E1DB;">
+    <div style="max-width:1200px;margin:0 auto;padding:40px clamp(20px,5vw,48px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
+      <a href="#top" style="display:flex;align-items:center;gap:11px;">
+        <svg viewBox="0 0 100 100" width="28" height="28"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+        <span style="font-weight:600;font-size:18px;letter-spacing:-0.025em;">Vardir</span>
+      </a>
+      <div style="font-family:'Space Mono',monospace;font-size:12px;color:#85857E;letter-spacing:0.04em;">Halden, Norge · © 2026 Vardir</div>
+      <div style="display:flex;gap:22px;">
+        <a href="#tjenester" style="font-size:14px;color:#6B6E73;">Tjenester</a>
+        <a href="#arbeid" style="font-size:14px;color:#6B6E73;">Arbeid</a>
+        <a href="#kontakt" style="font-size:14px;color:#6B6E73;">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mobile: (typeof window !== 'undefined' && window.innerWidth < 860), menuOpen: false, showAllProjects: false };
+  componentDidMount() {
+    this._onResize = () => {
+      const m = window.innerWidth < 860;
+      if (m !== this.state.mobile) this.setState({ mobile: m, menuOpen: false });
+    };
+    window.addEventListener('resize', this._onResize);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+  }
+  renderVals() {
+    const mobile = this.state.mobile;
+    return {
+      mobile,
+      desktop: !mobile,
+      showMobileMenu: mobile && this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      showAllProjects: this.state.showAllProjects,
+      projectsToggleLabel: this.state.showAllProjects ? 'Vis færre prosjekter' : 'Vis flere prosjekter (6)',
+      toggleProjects: () => this.setState(s => ({ showAllProjects: !s.showAllProjects })),
+    };
+  }
+}
+</script>
+</body>
+</html>

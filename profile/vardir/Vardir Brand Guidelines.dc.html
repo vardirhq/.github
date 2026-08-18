@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+</style>
+</helmet>
+<div style="font-family:'Space Grotesk',sans-serif;background:#EFEEE9;color:#15181D;min-height:100%;padding:0 0 80px;">
+
+  <!-- HERO -->
+  <header data-screen-label="Cover" style="padding:88px 40px 66px;display:flex;flex-direction:column;align-items:center;text-align:center;border-bottom:1px solid #E6E5DF;">
+    <svg viewBox="0 0 100 100" width="120" height="120" style="margin-bottom:32px;"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+    <div style="font-weight:600;font-size:54px;letter-spacing:-0.03em;line-height:1;">Vardir</div>
+    <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:#6B6E73;margin:42px 0 0;">Brand Guidelines · Typografi · Stemme</p>
+  </header>
+
+  <div style="max-width:1180px;margin:0 auto;padding:56px 40px 0;display:flex;flex-direction:column;gap:26px;">
+
+    <!-- TYPOGRAPHY: FAMILIES -->
+    <section data-screen-label="Type families" style="background:#fff;border:1px solid #E6E5DF;border-radius:24px;padding:38px;">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#6B6E73;margin-bottom:26px;">01 · Skrifttyper</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+        <div style="background:#EFEEE9;border:1px solid #E6E5DF;border-radius:16px;padding:32px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:22px;">
+            <span style="font-weight:600;font-size:19px;letter-spacing:-0.02em;">Space Grotesk</span>
+            <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6B6E73;">Display &amp; brødtekst</span>
+          </div>
+          <div style="font-weight:500;font-size:64px;letter-spacing:-0.03em;line-height:1;margin-bottom:18px;">Ag</div>
+          <div style="font-size:15px;line-height:1.4;color:#3A3D42;">ABCDEFGHIJKLM<br>abcdefghijklm<br>1234567890 &amp;?!æøå</div>
+          <div style="display:flex;gap:8px;margin-top:22px;flex-wrap:wrap;">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6B6E73;border:1px solid #E6E5DF;border-radius:7px;padding:5px 11px;">400 Regular</span>
+            <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6B6E73;border:1px solid #E6E5DF;border-radius:7px;padding:5px 11px;">500 Medium</span>
+            <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6B6E73;border:1px solid #E6E5DF;border-radius:7px;padding:5px 11px;">600 SemiBold</span>
+          </div>
+        </div>
+        <div style="background:#EFEEE9;border:1px solid #E6E5DF;border-radius:16px;padding:32px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:22px;">
+            <span style="font-family:'Space Mono',monospace;font-weight:700;font-size:19px;">Space Mono</span>
+            <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6B6E73;">Etiketter &amp; kode</span>
+          </div>
+          <div style="font-family:'Space Mono',monospace;font-weight:700;font-size:64px;line-height:1;margin-bottom:18px;">Ag</div>
+          <div style="font-family:'Space Mono',monospace;font-size:14px;line-height:1.5;color:#3A3D42;">ABCDEFGHIJKL<br>abcdefghijklm<br>1234567890 &amp;?!æøå</div>
+          <div style="display:flex;gap:8px;margin-top:22px;flex-wrap:wrap;">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6B6E73;border:1px solid #E6E5DF;border-radius:7px;padding:5px 11px;">400 Regular</span>
+            <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6B6E73;border:1px solid #E6E5DF;border-radius:7px;padding:5px 11px;">700 Bold</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPOGRAPHY: SCALE -->
+    <section data-screen-label="Type scale" style="background:#fff;border:1px solid #E6E5DF;border-radius:24px;padding:38px;">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#6B6E73;margin-bottom:30px;">02 · Typografisk skala</div>
+      <div style="display:flex;flex-direction:column;">
+        <div style="display:flex;align-items:baseline;gap:24px;padding:16px 0;border-bottom:1px solid #F0EFEA;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;color:#9A9DA3;width:150px;flex-shrink:0;">Display · 600 · 64/1.0</span>
+          <span style="font-weight:600;font-size:52px;letter-spacing:-0.035em;line-height:1;">Som varer</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:24px;padding:16px 0;border-bottom:1px solid #F0EFEA;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;color:#9A9DA3;width:150px;flex-shrink:0;">H1 · 600 · 40/1.05</span>
+          <span style="font-weight:600;font-size:38px;letter-spacing:-0.03em;line-height:1.05;">Det vi gjør best</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:24px;padding:16px 0;border-bottom:1px solid #F0EFEA;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;color:#9A9DA3;width:150px;flex-shrink:0;">H2 · 600 · 24/1.1</span>
+          <span style="font-weight:600;font-size:24px;letter-spacing:-0.02em;line-height:1.1;">Webutvikling og programvare</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:24px;padding:16px 0;border-bottom:1px solid #F0EFEA;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;color:#9A9DA3;width:150px;flex-shrink:0;">Body · 400 · 17/1.6</span>
+          <span style="font-size:17px;line-height:1.6;color:#3A3D42;max-width:520px;">Presise, robuste løsninger for selskaper som tar teknologi på alvor — fra idé til drift.</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:24px;padding:16px 0;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;color:#9A9DA3;width:150px;flex-shrink:0;">Label · Mono 700 · 12/0.2em</span>
+          <span style="font-family:'Space Mono',monospace;font-weight:700;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#5856E0;">Web · Programvare · Halden</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGO DO / DON'T -->
+    <section data-screen-label="Do and don't" style="background:#fff;border:1px solid #E6E5DF;border-radius:24px;padding:38px;">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#6B6E73;margin-bottom:26px;">03 · Bruk &amp; misbruk</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="aspect-ratio:1;background:#EFEEE9;border:1px solid #E6E5DF;border-radius:16px;display:flex;align-items:center;justify-content:center;position:relative;">
+            <svg viewBox="0 0 100 100" width="72" height="72"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+            <span style="position:absolute;top:12px;left:12px;width:22px;height:22px;border-radius:50%;background:#2E9E63;color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center;">✓</span>
+          </div>
+          <span style="font-size:13px;color:#3A3D42;line-height:1.4;">Bruk godkjente farger og full clearspace.</span>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="aspect-ratio:1;background:#EFEEE9;border:1px solid #E6E5DF;border-radius:16px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+            <svg viewBox="0 0 100 100" width="72" height="52" preserveAspectRatio="none"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+            <span style="position:absolute;top:12px;left:12px;width:22px;height:22px;border-radius:50%;background:#D14A44;color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center;">✕</span>
+          </div>
+          <span style="font-size:13px;color:#3A3D42;line-height:1.4;">Ikke strekk eller forvreng proporsjonene.</span>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="aspect-ratio:1;background:linear-gradient(135deg,#F0A878,#E0605A);border-radius:16px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+            <svg viewBox="0 0 100 100" width="72" height="72"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+            <span style="position:absolute;top:12px;left:12px;width:22px;height:22px;border-radius:50%;background:#D14A44;color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center;">✕</span>
+          </div>
+          <span style="font-size:13px;color:#3A3D42;line-height:1.4;">Ikke plasser på farger med lav kontrast.</span>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="aspect-ratio:1;background:#EFEEE9;border:1px solid #E6E5DF;border-radius:16px;display:flex;align-items:center;justify-content:center;position:relative;">
+            <svg viewBox="0 0 100 100" width="72" height="72" style="transform:rotate(24deg);"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+            <span style="position:absolute;top:12px;left:12px;width:22px;height:22px;border-radius:50%;background:#D14A44;color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center;">✕</span>
+          </div>
+          <span style="font-size:13px;color:#3A3D42;line-height:1.4;">Ikke roter eller vipp symbolet.</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VOICE -->
+    <section data-screen-label="Voice" style="background:#15181D;border-radius:24px;padding:44px;color:#F2F1EC;">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#9D9BF0;margin-bottom:30px;">04 · Stemme &amp; budskap</div>
+      <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start;">
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#9D9BF0;margin-bottom:16px;">Tagline</div>
+          <div style="font-weight:600;font-size:34px;letter-spacing:-0.03em;line-height:1.1;margin-bottom:36px;">Vi bygger web og programvare som varer.</div>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#9D9BF0;margin-bottom:14px;">Boilerplate</div>
+          <p style="font-size:16px;line-height:1.65;color:#B8BABF;margin:0;">Vardir er et uavhengig utviklingsstudio i Halden, drevet av Christoffer Madsen. Bak hvert prosjekt står én person som eier hele veien — fra datamodell og logikk til grensesnitt og leveranse. Lokal-først der det gir mening, ingen mellomledd, ingen overlevering.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#9D9BF0;margin-bottom:2px;">Tone of voice</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:15px 18px;background:#1E2128;border:1px solid #2A2E36;border-radius:12px;"><span style="font-size:15px;color:#F2F1EC;">Presis</span><span style="font-size:13px;color:#7E828A;">ikke pompøs</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:15px 18px;background:#1E2128;border:1px solid #2A2E36;border-radius:12px;"><span style="font-size:15px;color:#F2F1EC;">Konkret</span><span style="font-size:13px;color:#7E828A;">ikke svulstig</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:15px 18px;background:#1E2128;border:1px solid #2A2E36;border-radius:12px;"><span style="font-size:15px;color:#F2F1EC;">Trygg</span><span style="font-size:13px;color:#7E828A;">ikke hypende</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:15px 18px;background:#1E2128;border:1px solid #2A2E36;border-radius:12px;"><span style="font-size:15px;color:#F2F1EC;">Norsk først</span><span style="font-size:13px;color:#7E828A;">klart språk</span></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1260,&quot;height&quot;:1720}}"></script>
+</body>
+</html>

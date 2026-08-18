@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+  <!-- 1 · TITLE -->
+  <section data-label="Tittel" data-speaker-notes="Åpne rolig. Presenter Vardir og hva tilbudet gjelder." style="width:1920px;height:1080px;background:#EFEEE9;font-family:'Space Grotesk',sans-serif;color:#15181D;display:flex;flex-direction:column;justify-content:space-between;padding:100px 120px;position:relative;overflow:hidden;">
+    <svg viewBox="0 0 100 100" width="820" height="820" style="position:absolute;right:-220px;top:-120px;opacity:0.05;"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+    <div style="display:flex;align-items:center;gap:22px;position:relative;z-index:1;">
+      <svg viewBox="0 0 100 100" width="60" height="60"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#15181D" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+      <span style="font-weight:600;font-size:38px;letter-spacing:-0.025em;">Vardir</span>
+    </div>
+    <div style="position:relative;z-index:1;">
+      <div style="font-family:'Space Mono',monospace;font-size:22px;letter-spacing:0.22em;text-transform:uppercase;color:#5856E0;margin-bottom:34px;">Prosjekttilbud · 2026</div>
+      <h1 style="font-weight:600;font-size:110px;line-height:1.0;letter-spacing:-0.04em;margin:0;max-width:1400px;text-wrap:balance;">Kundeportal for Nordvik Eiendom</h1>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:1;font-family:'Space Mono',monospace;font-size:20px;color:#6B6E73;">
+      <span>Utarbeidet for Kari Nordvik</span>
+      <span>Halden · 1. juli 2026</span>
+    </div>
+  </section>
+
+  <!-- 2 · AGENDA -->
+  <section data-label="Agenda" data-speaker-notes="Kjapp oversikt over hva vi går gjennom." style="width:1920px;height:1080px;background:#EFEEE9;font-family:'Space Grotesk',sans-serif;color:#15181D;display:flex;flex-direction:column;justify-content:center;padding:100px 120px;">
+    <div style="font-family:'Space Mono',monospace;font-size:22px;letter-spacing:0.22em;text-transform:uppercase;color:#5856E0;margin-bottom:56px;">Agenda</div>
+    <div style="display:flex;flex-direction:column;gap:0;max-width:1300px;">
+      <div style="display:flex;align-items:baseline;gap:44px;padding:30px 0;border-top:2px solid #15181D;"><span style="font-family:'Space Mono',monospace;font-size:24px;color:#5856E0;width:60px;">01</span><span style="font-weight:600;font-size:44px;letter-spacing:-0.02em;">Forståelse &amp; mål</span></div>
+      <div style="display:flex;align-items:baseline;gap:44px;padding:30px 0;border-top:1px solid #D5D4CD;"><span style="font-family:'Space Mono',monospace;font-size:24px;color:#5856E0;width:60px;">02</span><span style="font-weight:600;font-size:44px;letter-spacing:-0.02em;">Løsning &amp; omfang</span></div>
+      <div style="display:flex;align-items:baseline;gap:44px;padding:30px 0;border-top:1px solid #D5D4CD;"><span style="font-family:'Space Mono',monospace;font-size:24px;color:#5856E0;width:60px;">03</span><span style="font-weight:600;font-size:44px;letter-spacing:-0.02em;">Prosess &amp; tidslinje</span></div>
+      <div style="display:flex;align-items:baseline;gap:44px;padding:30px 0;border-top:1px solid #D5D4CD;border-bottom:1px solid #D5D4CD;"><span style="font-family:'Space Mono',monospace;font-size:24px;color:#5856E0;width:60px;">04</span><span style="font-weight:600;font-size:44px;letter-spacing:-0.02em;">Investering</span></div>
+    </div>
+  </section>
+
+  <!-- 3 · SECTION DIVIDER -->
+  <section data-label="Del 01" data-speaker-notes="Overgang til forståelse-delen." style="width:1920px;height:1080px;background:#5856E0;font-family:'Space Grotesk',sans-serif;color:#fff;display:flex;flex-direction:column;justify-content:center;padding:100px 120px;position:relative;overflow:hidden;">
+    <svg viewBox="0 0 100 100" width="760" height="760" style="position:absolute;left:-180px;bottom:-220px;opacity:0.12;"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#fff" fill-rule="evenodd"/></svg>
+    <div style="font-family:'Space Mono',monospace;font-size:22px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:30px;position:relative;z-index:1;">Del 01</div>
+    <h2 style="font-weight:600;font-size:128px;line-height:1;letter-spacing:-0.04em;margin:0;position:relative;z-index:1;">Forståelse<br>&amp; mål</h2>
+  </section>
+
+  <!-- 4 · CHALLENGE -->
+  <section data-label="Utfordring" data-speaker-notes="Speil kundens situasjon tilbake til dem — vis at vi forstår." style="width:1920px;height:1080px;background:#EFEEE9;font-family:'Space Grotesk',sans-serif;color:#15181D;display:flex;flex-direction:column;justify-content:center;padding:100px 120px;">
+    <div style="font-family:'Space Mono',monospace;font-size:22px;letter-spacing:0.22em;text-transform:uppercase;color:#5856E0;margin-bottom:44px;">Utfordringen</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;">
+      <div style="background:#fff;border:1px solid #E6E5DF;border-radius:24px;padding:48px;"><div style="font-weight:600;font-size:32px;letter-spacing:-0.02em;margin-bottom:18px;">Manuelle rutiner</div><p style="font-size:22px;line-height:1.55;color:#5A5D62;margin:0;">Leietakerhenvendelser håndteres på e-post og telefon, uten samlet oversikt.</p></div>
+      <div style="background:#fff;border:1px solid #E6E5DF;border-radius:24px;padding:48px;"><div style="font-weight:600;font-size:32px;letter-spacing:-0.02em;margin-bottom:18px;">Spredte data</div><p style="font-size:22px;line-height:1.55;color:#5A5D62;margin:0;">Kontrakter, avlesninger og fakturagrunnlag ligger i ulike systemer.</p></div>
+      <div style="background:#fff;border:1px solid #E6E5DF;border-radius:24px;padding:48px;"><div style="font-weight:600;font-size:32px;letter-spacing:-0.02em;margin-bottom:18px;">Ingen selvbetjening</div><p style="font-size:22px;line-height:1.55;color:#5A5D62;margin:0;">Leietakere kan ikke se egen status eller melde saker selv.</p></div>
+    </div>
+  </section>
+
+  <!-- 5 · SOLUTION -->
+  <section data-label="Løsning" data-speaker-notes="Presenter løsningen konkret. Én portal, tre roller." style="width:1920px;height:1080px;background:#15181D;font-family:'Space Grotesk',sans-serif;color:#F2F1EC;display:flex;flex-direction:column;justify-content:center;padding:100px 120px;">
+    <div style="font-family:'Space Mono',monospace;font-size:22px;letter-spacing:0.22em;text-transform:uppercase;color:#9D9BF0;margin-bottom:34px;">Løsningen</div>
+    <h2 style="font-weight:600;font-size:72px;line-height:1.05;letter-spacing:-0.03em;margin:0 0 60px;max-width:1300px;">Én portal som samler drift, leietakere og økonomi.</h2>
+    <div style="display:flex;gap:26px;">
+      <div style="flex:1;border-top:2px solid #5856E0;padding-top:26px;"><div style="font-weight:600;font-size:30px;margin-bottom:12px;">Administrator</div><p style="font-size:20px;line-height:1.5;color:#9CA0A6;margin:0;">Oversikt over eiendommer, kontrakter og saker på ett sted.</p></div>
+      <div style="flex:1;border-top:2px solid #5856E0;padding-top:26px;"><div style="font-weight:600;font-size:30px;margin-bottom:12px;">Leietaker</div><p style="font-size:20px;line-height:1.5;color:#9CA0A6;margin:0;">Selvbetjening: se status, meld saker, last ned dokumenter.</p></div>
+      <div style="flex:1;border-top:2px solid #5856E0;padding-top:26px;"><div style="font-weight:600;font-size:30px;margin-bottom:12px;">Økonomi</div><p style="font-size:20px;line-height:1.5;color:#9CA0A6;margin:0;">Automatisk fakturagrunnlag og eksport til regnskap.</p></div>
+    </div>
+  </section>
+
+  <!-- 6 · TIMELINE -->
+  <section data-label="Tidslinje" data-speaker-notes="Fire faser over tolv uker. Ukentlig fremdrift." style="width:1920px;height:1080px;background:#EFEEE9;font-family:'Space Grotesk',sans-serif;color:#15181D;display:flex;flex-direction:column;justify-content:center;padding:100px 120px;">
+    <div style="font-family:'Space Mono',monospace;font-size:22px;letter-spacing:0.22em;text-transform:uppercase;color:#5856E0;margin-bottom:56px;">Tidslinje · 12 uker</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      <div style="border-top:2px solid #15181D;padding-top:26px;"><div style="font-family:'Space Mono',monospace;font-size:20px;color:#5856E0;margin-bottom:16px;">Uke 1–2</div><div style="font-weight:600;font-size:34px;letter-spacing:-0.02em;margin-bottom:12px;">Forstå</div><p style="font-size:19px;line-height:1.5;color:#5A5D62;margin:0;">Mål, brukere og datamodell kartlegges.</p></div>
+      <div style="border-top:2px solid #15181D;padding-top:26px;"><div style="font-family:'Space Mono',monospace;font-size:20px;color:#5856E0;margin-bottom:16px;">Uke 3–5</div><div style="font-weight:600;font-size:34px;letter-spacing:-0.02em;margin-bottom:12px;">Forme</div><p style="font-size:19px;line-height:1.5;color:#5A5D62;margin:0;">Prototyper og grensesnitt, tett dialog.</p></div>
+      <div style="border-top:2px solid #15181D;padding-top:26px;"><div style="font-family:'Space Mono',monospace;font-size:20px;color:#5856E0;margin-bottom:16px;">Uke 6–10</div><div style="font-weight:600;font-size:34px;letter-spacing:-0.02em;margin-bottom:12px;">Bygge</div><p style="font-size:19px;line-height:1.5;color:#5A5D62;margin:0;">Utvikling, testing og produksjonssetting.</p></div>
+      <div style="border-top:2px solid #15181D;padding-top:26px;"><div style="font-family:'Space Mono',monospace;font-size:20px;color:#5856E0;margin-bottom:16px;">Uke 11–12</div><div style="font-weight:600;font-size:34px;letter-spacing:-0.02em;margin-bottom:12px;">Drifte</div><p style="font-size:19px;line-height:1.5;color:#5A5D62;margin:0;">Opplæring, overlevering og support.</p></div>
+    </div>
+  </section>
+
+  <!-- 7 · INVESTMENT -->
+  <section data-label="Investering" data-speaker-notes="Vær tydelig og trygg på pris. Fast pris, ingen overraskelser." style="width:1920px;height:1080px;background:#EFEEE9;font-family:'Space Grotesk',sans-serif;color:#15181D;display:flex;flex-direction:column;justify-content:center;padding:100px 120px;">
+    <div style="font-family:'Space Mono',monospace;font-size:22px;letter-spacing:0.22em;text-transform:uppercase;color:#5856E0;margin-bottom:44px;">Investering</div>
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:26px;align-items:stretch;">
+      <div style="background:#fff;border:1px solid #E6E5DF;border-radius:24px;padding:56px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:26px;color:#6B6E73;margin-bottom:14px;">Fast pris, levert nøkkelferdig</div>
+        <div style="font-weight:600;font-size:104px;letter-spacing:-0.04em;line-height:1;">kr 320 000</div>
+        <div style="font-family:'Space Mono',monospace;font-size:20px;color:#6B6E73;margin-top:20px;">eks. mva · 40 % ved oppstart, 60 % ved levering</div>
+      </div>
+      <div style="background:#5856E0;border-radius:24px;padding:52px;color:#fff;display:flex;flex-direction:column;justify-content:center;gap:22px;">
+        <div style="display:flex;align-items:center;gap:16px;font-size:24px;"><span style="font-size:22px;">✓</span>Full kildekode &amp; eierskap</div>
+        <div style="display:flex;align-items:center;gap:16px;font-size:24px;"><span style="font-size:22px;">✓</span>3 mnd support inkludert</div>
+        <div style="display:flex;align-items:center;gap:16px;font-size:24px;"><span style="font-size:22px;">✓</span>Automatisert utrulling</div>
+        <div style="display:flex;align-items:center;gap:16px;font-size:24px;"><span style="font-size:22px;">✓</span>Ingen mellomledd</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · CLOSE -->
+  <section data-label="Avslutning" data-speaker-notes="Avslutt med invitasjon til neste steg." style="width:1920px;height:1080px;background:#15181D;font-family:'Space Grotesk',sans-serif;color:#F2F1EC;display:flex;flex-direction:column;justify-content:space-between;padding:100px 120px;position:relative;overflow:hidden;">
+    <svg viewBox="0 0 100 100" width="720" height="720" style="position:absolute;right:-180px;bottom:-220px;opacity:0.08;"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#fff" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+    <div style="display:flex;align-items:center;gap:22px;position:relative;z-index:1;">
+      <svg viewBox="0 0 100 100" width="52" height="52"><path d="M88 50 L69 82.9 L31 82.9 L12 50 L31 17.1 L69 17.1 Z M73 50 L61.5 69.9 L38.5 69.9 L27 50 L38.5 30.1 L61.5 30.1 Z" fill="#fff" fill-rule="evenodd"/><path d="M69 17.1 L88 50 L50 50 Z" fill="#5856E0"/></svg>
+      <span style="font-weight:600;font-size:32px;letter-spacing:-0.025em;">Vardir</span>
+    </div>
+    <div style="position:relative;z-index:1;">
+      <h2 style="font-weight:600;font-size:104px;line-height:1.02;letter-spacing:-0.04em;margin:0 0 40px;max-width:1300px;text-wrap:balance;">La oss bygge det sammen.</h2>
+      <div style="display:flex;gap:56px;font-family:'Space Mono',monospace;font-size:24px;color:#9D9BF0;">
+        <span>chris@vardir.no</span>
+        <span>+47 902 44 044</span>
+        <span>vardir.no</span>
+      </div>
+    </div>
+  </section>
+
+</x-import>
+</x-dc>
+</body>
+</html>
