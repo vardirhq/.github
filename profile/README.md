@@ -1,5 +1,9 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vardirhq/.github/main/profile/vardir/logos/Vardir-primary.png" alt="Vardir" width="260">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vardirhq/.github/main/profile/vardir/logos/Vardir-white.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/vardirhq/.github/main/profile/vardir/logos/Vardir-primary.png">
+    <img src="https://raw.githubusercontent.com/vardirhq/.github/main/profile/vardir/logos/Vardir-primary.png" alt="Vardir" width="260">
+  </picture>
 </p>
 
 <p align="center">
@@ -118,7 +122,11 @@ Issues, bug reports, discussions, and pull requests are welcome where enabled. C
 ---
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vardirhq/.github/main/profile/vardir/logos/Vardir-mark.png" alt="Vardir mark" width="42"><br><br>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vardirhq/.github/main/profile/vardir/logos/Vardir-mark-white.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/vardirhq/.github/main/profile/vardir/logos/Vardir-mark.png">
+    <img src="https://raw.githubusercontent.com/vardirhq/.github/main/profile/vardir/logos/Vardir-mark.png" alt="Vardir mark" width="42">
+  </picture><br><br>
   <strong>Vardir</strong><br>
   <sub>Independent software · Halden, Norway · Maintained by <a href="https://github.com/MadsenDev">Christoffer Madsen</a></sub>
 </p>
