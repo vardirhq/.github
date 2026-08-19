@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./vardir/logos/Vardir-primary.png" alt="Vardir" width="260">
+  <img src="https://raw.githubusercontent.com/vardirhq/.github/main/profile/vardir/logos/Vardir-primary.png" alt="Vardir" width="260">
 </p>
 
 <p align="center">
@@ -118,7 +118,7 @@ Issues, bug reports, discussions, and pull requests are welcome where enabled. C
 ---
 
 <p align="center">
-  <img src="./vardir/logos/Vardir-mark.png" alt="Vardir mark" width="42"><br><br>
+  <img src="https://raw.githubusercontent.com/vardirhq/.github/main/profile/vardir/logos/Vardir-mark.png" alt="Vardir mark" width="42"><br><br>
   <strong>Vardir</strong><br>
   <sub>Independent software · Halden, Norway · Maintained by <a href="https://github.com/MadsenDev">Christoffer Madsen</a></sub>
 </p>
